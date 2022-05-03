@@ -1,0 +1,7 @@
+.footer__li:not(:last-child) {
+  margin-right: 28px;
+}
+  
+.footer__li a {
+  color: #fff;
+}
