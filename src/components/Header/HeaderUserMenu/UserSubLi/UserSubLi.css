@@ -1,0 +1,38 @@
+.header__sub-ul-li {
+    background: #FFFFFF;
+    font-weight: 400;
+  }
+  
+  .header__sub-ul-li:last-child,
+  .header__sub-ul-li:last-child a:hover {
+    border-radius: 0px 0px 10px 10px;
+  }
+  
+  .header__sub-ul-link {
+    color: #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 10px 16px 10px 23px;
+  }
+  
+  .header__sub-ul-link:hover {
+    background: rgba(138, 90, 90, 0.4);
+  }
+  
+  .header__sub-ul-link-name {
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    font-weight: 400;
+  }
+  
+  .header__sub-ul-link i {
+    color: #000000;
+  }
