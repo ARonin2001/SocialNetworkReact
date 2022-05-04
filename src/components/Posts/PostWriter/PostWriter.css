@@ -1,0 +1,12 @@
+.post-write {
+    margin-bottom: 24px;
+  }
+  
+  .post-write__container {
+    padding: 13px;
+  }
+  
+  .post-write__title_unactive {
+    display: none;
+  }
+  

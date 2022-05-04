@@ -1,0 +1,42 @@
+.post__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  
+  .post__user {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .post__user-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .post__ava {
+    margin-right: 10px;
+  }
+  
+  .post__ava img {
+    width: 44px;
+  }
+  
+  .post__name {
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #1FC375;
+  }
+  
+  .post__title {
+    margin-bottom: 7px;
+  }

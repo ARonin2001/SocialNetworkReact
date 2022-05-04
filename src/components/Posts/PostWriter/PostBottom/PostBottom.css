@@ -1,0 +1,35 @@
+.post-write .form-post_bottom {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  
+  .post-write .form-post__img-container {
+    position: relative;
+  }
+  
+  .post-write .form-post__img-input {
+    display: none;
+  }
+  
+  .post-write .form-post__img-label {
+    display: block;
+    width: 25px;
+    height: 25px;
+    background: url("../../../../assets/img/3643766-album-image-landscape-photo-photos-picture_113407.svg") center/cover no-repeat;
+    cursor: pointer;
+    -webkit-transition: -webkit-transform .2s;
+    transition: -webkit-transform .2s;
+    -o-transition: transform .2s;
+    transition: transform .2s;
+    transition: transform .2s, -webkit-transform .2s;
+  }
+  
+  .post-write .form-post__img-label:active {
+    -webkit-transform: scale(0.9, 0.9);
+        -ms-transform: scale(0.9, 0.9);
+            transform: scale(0.9, 0.9);
+  }

@@ -1,0 +1,12 @@
+.post-write .form-post__content {
+    width: 100%;
+    min-height: 73px;
+    height: auto;
+    font-weight: 400;
+    font-size: 14px;
+    color: #B2B4BC;
+  }
+  
+  .post-write .form-post__content-container {
+    height: 100%;
+  }

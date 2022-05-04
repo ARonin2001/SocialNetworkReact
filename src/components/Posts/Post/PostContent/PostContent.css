@@ -1,0 +1,11 @@
+.post__text {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 14px;
+  }
+  
+  .post__img-container img {
+    width: 100%;
+    margin-bottom: 8px;
+  }
