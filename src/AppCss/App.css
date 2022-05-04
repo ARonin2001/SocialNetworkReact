@@ -63,6 +63,7 @@ body {
   grid-template-columns: auto 1132px auto;
   grid-template-areas: "head head head" "main main main" "footer footer footer";
   row-gap: 35px;
+  height: 100vh;
 }
 
 .block {

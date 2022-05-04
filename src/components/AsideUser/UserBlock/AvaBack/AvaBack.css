@@ -1,0 +1,16 @@
+.user-mini__top {
+    position:  relative;
+    height: 92px;
+  }
+
+  .user-mini__back-img {
+    width: 100%;
+    max-height: 92px;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
+    -o-object-fit: cover;
+     object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
