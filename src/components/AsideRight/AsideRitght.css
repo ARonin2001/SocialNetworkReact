@@ -1,0 +1,18 @@
+.aside-right {
+    grid-area: rigt;
+  }
+  
+  .aside-user__friends {
+    max-width: 265px;
+  }
+  
+  .aside-user__container {
+    position: sticky;
+    top: 65px;
+  }
+  
+  .friends__container {
+    padding: 13px;
+  }
+  
+  

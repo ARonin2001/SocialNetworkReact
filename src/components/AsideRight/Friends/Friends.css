@@ -1,0 +1,12 @@
+.friends__rows {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .friends__show-friends {
+    font-weight: 700;
+    font-size: 13px;
+    color: #B2B4BC;
+  }
