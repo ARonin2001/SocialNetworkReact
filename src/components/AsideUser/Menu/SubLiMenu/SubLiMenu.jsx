@@ -4,10 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './SubLiMenu.css';
 import { NavLink } from "react-router-dom";
 
-const SubLiMenu = ({icon, subTitle}) => {
+const SubLiMenu = ({icon, subTitle, link}) => {
     return (
         <li className="menu__sub-li">
-            <NavLink to="profile.html" className="menu__sub-link">
+            <NavLink to={link} className="menu__sub-link">
                 <FontAwesomeIcon icon={icon}/>
                 <div className="menu__sub-li-title">{subTitle}</div>
             </NavLink>

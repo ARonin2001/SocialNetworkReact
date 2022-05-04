@@ -1,8 +1,31 @@
 import React from "react";
-
+import {useState} from 'react';
+import { connect } from "react-redux";
 import './Login.css';
+import { getLoginUser } from './../../../redux/reducers/authReducer';
 
 const Login = (props) => {
+
+    let [login, setLogin] = useState("");
+    let [password, setPassword] = useState("");
+
+    const changeLogin = (e) => {
+        setLogin(e.target.value);
+    }
+
+    const changePassword = (e) => {
+        setPassword(e.target.value);
+    }
+
+    const authLogin = () => {
+        if(login && password) {
+            props.getLoginUser(login, password);
+
+            if(props.isAuth)
+                window.location.replace("http://localhost:3001/");
+        }
+    }
+
     return (
         <div class="block login">
             <div class="login__container">
@@ -13,10 +36,10 @@ const Login = (props) => {
                 <form action="GET" class="login__form" id="login__form">
                     <div class="login__inputs">
                         <div class="login__input-container">
-                            <input type="text" class="login__input" placeholder="Username" />
+                            <input type="text" class="login__input" placeholder="Username" onChange={changeLogin} value={login} />
                         </div>
                         <div class="login__input-container">
-                            <input type="password" class="login__input" placeholder="Password" />
+                            <input type="password" class="login__input" placeholder="Password" onChange={changePassword} value={password} />
                         </div>
                     </div>
                     <div class="login__form_bottom">
@@ -27,7 +50,7 @@ const Login = (props) => {
                                     Запомнить меня
                                 </label>
                             </div>
-                            <button type="button" class="btn login__log-in">ВОЙТИ</button>
+                            <button type="button" class="btn login__log-in" onClick={authLogin}>ВОЙТИ</button>
                         </div>
                         <div class="login__form_right">
                             <a href="#" class="login__link">Forgot Password</a>
@@ -41,4 +64,15 @@ const Login = (props) => {
     );
 };
 
-export default Login;
+let mapStateToProps = state => {
+    return {
+        isAuth: state.auth.isAuth
+    }
+}
+
+export default connect(
+    mapStateToProps, {
+        getLoginUser
+    }
+)
+(Login);

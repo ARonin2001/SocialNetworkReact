@@ -28,11 +28,11 @@ const Menu = (props) => {
                         </div>
 
                         <ul className="menu__sub-ul">
-                            <SubLiMenu subTitle={"Home"} icon={faHome}/>
-                            <SubLiMenu subTitle={"About me"} icon={faCircleUser}/>
-                            <SubLiMenu subTitle={"Friends"} icon={faUserGroup}/>
-                            <SubLiMenu subTitle={"Messages"} icon={faMessage}/>
-                            <SubLiMenu subTitle={"News"} icon={faNewspaper}/>
+                            <SubLiMenu subTitle={"Home"} icon={faHome} link={"#"}/>
+                            <SubLiMenu subTitle={"About me"} icon={faCircleUser} link={"#"}/>
+                            <SubLiMenu subTitle={"Friends"} icon={faUserGroup} link={"#"}/>
+                            <SubLiMenu subTitle={"Messages"} icon={faMessage} link={"#"}/>
+                            <SubLiMenu subTitle={"News"} icon={faNewspaper} link={"/"}/>
                         </ul>
                     </li>
                 </ul>

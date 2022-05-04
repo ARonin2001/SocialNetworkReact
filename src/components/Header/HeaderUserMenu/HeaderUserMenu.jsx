@@ -7,6 +7,8 @@ import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import './HeaderUserMenu.css';
 import UserSubLi from "./UserSubLi/UserSubLi";
 import { accordionBlock } from "../HeaderLogic.js";
+import { faPersonThroughWindow } from "@fortawesome/free-solid-svg-icons";
+
 
 // menu
 const toggleHeaderSubUl = (e) => {
@@ -37,7 +39,7 @@ const HeaderUserMenu = (props) => {
                         </div>
 
                         <ul className="header__user-sub-ul header__sub-ul">
-                            <UserSubLi />
+                            <UserSubLi text={"Login"} icon={faPersonThroughWindow} link={"/auth/login"} />
                         </ul>
                     </li>
                 </ul>
