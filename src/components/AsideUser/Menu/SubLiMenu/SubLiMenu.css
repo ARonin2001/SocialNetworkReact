@@ -1,0 +1,30 @@
+.menu__sub-li {
+    border-top: 1px solid #E0E0E0;
+  }
+  
+  .menu__sub-li-title {
+    font-weight: 400;
+  }
+  
+  .menu__sub-li:hover {
+    background: rgba(124, 117, 117, 0.4);
+  }
+  
+  .menu__sub-li:last-child {
+    border-bottom: 1px solid #E0E0E0;
+  }
+  .menu__sub-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: #000000;
+    padding: 12px 13px;
+  }
+  
+  .menu__sub-link svg {
+    margin-right: 11px;
+    font-size: 20px;
+  }
