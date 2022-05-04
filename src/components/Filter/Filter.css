@@ -1,0 +1,14 @@
+.filter {
+    overflow: hidden;
+    margin-bottom: 25px;
+  }
+  
+  .filter__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    min-height: 48px;
+  }
