@@ -3,11 +3,13 @@ import './AppCss/reset.css';
 import './AppCss/font.css';
 import './AppCss/App.css';
 import './AppCss/container.css';
-import { Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import AsideUser from './components/AsideUser/AsideUser';
 import AsideRight from './components/AsideRight/AsideRitght';
+import News from './components/News/News';
+import Login from './components/Auth/Login/Login';
 
 function App() {
   return (
@@ -19,7 +21,10 @@ function App() {
             <AsideUser />
             <div className='content'>
               <div className='content__container'>
-                main content
+                <Routes>
+                  <Route path="/" element={<News/>} />
+                  <Route path="/auth/login" element={<Login />} />
+                </Routes>
               </div>
             </div>
             <AsideRight />
@@ -42,5 +47,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
