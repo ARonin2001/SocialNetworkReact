@@ -40,6 +40,7 @@ const HeaderUserMenu = (props) => {
 
                         <ul className="header__user-sub-ul header__sub-ul">
                             <UserSubLi text={"Login"} icon={faPersonThroughWindow} link={"/auth/login"} />
+                            <UserSubLi text={"Register"} icon={faPersonThroughWindow} link={"/auth/register"} />
                         </ul>
                     </li>
                 </ul>
