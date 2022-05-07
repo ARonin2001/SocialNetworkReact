@@ -10,6 +10,7 @@ import AsideUser from './components/AsideUser/AsideUser';
 import AsideRight from './components/AsideRight/AsideRitght';
 import News from './components/News/News';
 import Login from './components/Auth/Login/Login';
+import Register from './components/Auth/Register/Register';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
                 <Routes>
                   <Route path="/" element={<News/>} />
                   <Route path="/auth/login" element={<Login />} />
+                  <Route path="/auth/register" element={<Register />} />
                 </Routes>
               </div>
             </div>

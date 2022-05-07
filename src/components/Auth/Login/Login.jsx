@@ -1,7 +1,7 @@
 import React from "react";
 import {useState} from 'react';
 import { connect } from "react-redux";
-import './Login.css';
+import '../Auth.css';
 import { getLoginUser } from './../../../redux/reducers/authReducer';
 
 const Login = (props) => {
@@ -27,34 +27,34 @@ const Login = (props) => {
     }
 
     return (
-        <div class="block login">
-            <div class="login__container">
-                <h2 class="login__title title">
+        <div className="block auth">
+            <div className="auth__container">
+                <h2 className="auth__title title">
                     Авторизация
                 </h2>
-                <div class="line"></div>
-                <form action="GET" class="login__form" id="login__form">
-                    <div class="login__inputs">
-                        <div class="login__input-container">
-                            <input type="text" class="login__input" placeholder="Username" onChange={changeLogin} value={login} />
+                <div className="line"></div>
+                <form action="GET" className="auth__form" id="auth__form">
+                    <div className="auth__inputs">
+                        <div className="auth__input-container">
+                            <input type="text" className="auth__input" placeholder="Username" onChange={changeLogin} value={login} />
                         </div>
-                        <div class="login__input-container">
-                            <input type="password" class="login__input" placeholder="Password" onChange={changePassword} value={password} />
+                        <div className="auth__input-container">
+                            <input type="password" className="auth__input" placeholder="Password" onChange={changePassword} value={password} />
                         </div>
                     </div>
-                    <div class="login__form_bottom">
-                        <div class="login__form_left">
-                            <div class="login__checkbox-container">
-                                <input type="checkbox" name="remeber-me" class="login_remember-me" id="login_remember-me" />
-                                <label for="login_remember-me" class="login__label_remember-me">
+                    <div className="auth__form_bottom">
+                        <div className="auth__form_left">
+                            <div className="auth__checkbox-container">
+                                <input type="checkbox" name="remeber-me" className="auth_remember-me" id="auth_remember-me" />
+                                <label for="auth_remember-me" className="auth__label_remember-me">
                                     Запомнить меня
                                 </label>
                             </div>
-                            <button type="button" class="btn login__log-in" onClick={authLogin}>ВОЙТИ</button>
+                            <button type="button" className="btn login__log-in" onClick={authLogin}>ВОЙТИ</button>
                         </div>
-                        <div class="login__form_right">
-                            <a href="#" class="login__link">Forgot Password</a>
-                            <a href="#" class="login__link">Register</a>
+                        <div className="auth__form_right">
+                            <a href="#" className="auth__link">Forgot Password</a>
+                            <a href="#" className="auth__link">Register</a>
                         </div>
                     </div>
 
