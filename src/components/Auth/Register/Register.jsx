@@ -1,6 +1,10 @@
 import React from "react";
+import Select from "../../Select/Select";
+import Input from "../../Input/Input";
 
 import '../Auth.css';
+import { NavLink } from "react-router-dom";
+import RadioButton from "../RadioCheckButton/RadioCheckButton";
 
 const Register = (props) => {
     return (
@@ -13,47 +17,28 @@ const Register = (props) => {
                 <form action="GET" className="auth__form" id="auth__form">
                     <div className="auth__inputs-container"> 
                         {/* name and lastName */}
-                        <div className="auth__inputs">
-                            <div className="auth__input-container">
-                                <input type="text" name="user-name" className="auth__input" placeholder="username"  />
-                            </div>
-                            <div className="auth__input-container">
-                                <input type="text" name="user-lastname" className="auth__input" placeholder="lastname" />
-                            </div>
+                        <div className="auth__inputs auth__section-row">
+                            <Input title={"Name"} type={"text"} name={"user-name"} inputId={"input__name"} />
+                            <Input title={"Lastname"} type={"text"} name={"user-lastname"} inputId={"input__lastname"} />
                         </div>
                         {/* password (email) and login */}
-                        <div className="auth__inputs">
-                            <div className="auth__input-container">
-                                <input type="email" name="user-mail" className="auth__input" placeholder="email"  />
-                            </div>
-                            <div className="auth__input-container">
-                                <input type="password" name="user-password" className="auth__input" placeholder="password" />
-                            </div>
+                        <div className="auth__inputs auth__section-row">
+                            <Input title={"Email"} type={"email"} name={"user-email"} inputId={"input__email"} />
+                            <Input title={"Password"} type={"password"} name={"user-password"} inputId={"input__password"} />
                         </div>
-                        <div className="auth__selects">
-                            <div className="auth__select-container">
-                                <select className="auth__select">
-                                   <option value={"Country"}>Country</option> 
-                                   <option value={"Japan"}>Japan</option> 
-                                   <option value={"Russia"}>Russia</option> 
-                                   <option value={"USA"}>USA</option> 
-                                </select>
-                            </div>
+                        {/* country and city */}
+                        <div className="auth__selects auth__section-row">
+                            <Select title="Country" values={["Japan", "Russia", "USA", "Korea"]} selectId={"select__country"}/>
+                            <Select title="City" values={["Tokio", "Moskow", "Vashington", "Seul"]} selectId={"select__city"}/>
+                        </div>
+                        {/* date of birth */}
+                        <div className="auth__date-time auth__section-row">
+                            <Input title={"DateBirth"} type={"date"} name={"user-dateBirth"} inputId={"input__datebirth"} />
                         </div>
                         {/* gender */}
                         <div className="auth__ceckboxes">
-                            <div className="auth__radio-container">
-                                <input type="radio" name="gender" className="auth__input-radio" id="auth__input-radio-m" value={"male"} />
-                                <label for="auth__input-radio-m" className="auth__label_radio">
-                                    male
-                                </label>
-                            </div>
-                            <div className="auth__radio-container">
-                                <input type="radio" name="gender" className="auth__input-radio" id="auth__input-radio-w" value={"woman"}/>
-                                <label for="auth__input-radio-w" className="auth__label_radio">
-                                    woman
-                                </label>
-                            </div>
+                            <RadioButton type={"radio"} name={"gender"} value={"male"} ID={"radio-m"} />
+                            <RadioButton type={"radio"} name={"gender"} value={"woman"} ID={"radio-w"} />
                         </div>
                         
                     </div>
@@ -61,6 +46,10 @@ const Register = (props) => {
                     <div className="auth__form_bottom">
                         <div className="auth__form_left">
                             <button type="button" className="btn login__log-in">REGISTER</button>
+                        </div>
+                        <div className="auth__form_right">
+                            <NavLink to="#" className="auth__link">Forgot Password</NavLink>
+                            <NavLink to="/auth/login" className="auth__link">Login</NavLink>
                         </div>
                     </div>
 
