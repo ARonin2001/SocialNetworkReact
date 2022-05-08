@@ -1,7 +1,10 @@
 import React from "react";
 import {useState} from 'react';
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
+import Input from "../../Input/Input";
 import '../Auth.css';
+import RadioButton from "../RadioCheckButton/RadioCheckButton";
 import { getLoginUser } from './../../../redux/reducers/authReducer';
 
 const Login = (props) => {
@@ -30,31 +33,25 @@ const Login = (props) => {
         <div className="block auth">
             <div className="auth__container">
                 <h2 className="auth__title title">
-                    Авторизация
+                    Authorization
                 </h2>
                 <div className="line"></div>
                 <form action="GET" className="auth__form" id="auth__form">
-                    <div className="auth__inputs">
-                        <div className="auth__input-container">
-                            <input type="text" className="auth__input" placeholder="Username" onChange={changeLogin} value={login} />
-                        </div>
-                        <div className="auth__input-container">
-                            <input type="password" className="auth__input" placeholder="Password" onChange={changePassword} value={password} />
-                        </div>
+                    <div className="auth__inputs auth__section-row ">
+                        {/* login */}
+                        <Input title={"Email"} type={"email"} inputId={"input__email"} name={"user-email"} value={login} onChange={changeLogin}/>
+                        {/* password */}
+                        <Input title={"Password"} type={"password"} inputId={"input__password"} name={"user-password"} value={password} onChange={changePassword} />
                     </div>
                     <div className="auth__form_bottom">
                         <div className="auth__form_left">
-                            <div className="auth__checkbox-container">
-                                <input type="checkbox" name="remeber-me" className="auth_remember-me" id="auth_remember-me" />
-                                <label for="auth_remember-me" className="auth__label_remember-me">
-                                    Запомнить меня
-                                </label>
-                            </div>
+                            <RadioButton type={"checkbox"} name={"remember"} ID={"radio-remember"} value={"Remember me"} />
+                            
                             <button type="button" className="btn login__log-in" onClick={authLogin}>ВОЙТИ</button>
                         </div>
                         <div className="auth__form_right">
-                            <a href="#" className="auth__link">Forgot Password</a>
-                            <a href="#" className="auth__link">Register</a>
+                            <NavLink to="#" className="auth__link">Forgot Password</NavLink>
+                            <NavLink to="/auth/register" className="auth__link">Register</NavLink>
                         </div>
                     </div>
 
