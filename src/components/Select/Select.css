@@ -1,0 +1,17 @@
+.select__container {
+    width: 100%;
+}
+
+.select {
+    background: #FFFFFF;
+    border: 1px solid #757575;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 5px;
+    padding: 6px 0 6px 7px;
+    width: 100%;
+}
+.select__label {
+    display: inline-block;
+    margin: 0 0 5px 3px;
+}
