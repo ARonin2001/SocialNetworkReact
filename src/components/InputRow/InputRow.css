@@ -1,0 +1,19 @@
+.inputs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: flex-start;
+        -ms-flex-align: flex-start;
+            align-items: flex-start;
+  }
+
+  .inputs__row {
+    margin-bottom: 13px;
+  }
+
+.inputs .input__container:not(:last-child) {
+    margin-right: 7px;
+}
