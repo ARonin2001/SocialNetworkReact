@@ -5,8 +5,8 @@ import './FooterLi.css';
 
 const FooterLi = ({linkText}) => {
     return (
-        <li class="footer__li">
-            <NavLink to="#" href="#" class="footer__link">{linkText}</NavLink>
+        <li className="footer__li">
+            <NavLink to="#" href="#" className="footer__link">{linkText}</NavLink>
         </li>
     );
 };

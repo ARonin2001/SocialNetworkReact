@@ -6,10 +6,10 @@ import PostWriteTitle from "./PostWriteTitle/PostWriteTitle";
 
 const PostWriter = (props) => {
     return (
-        <div class="post-write content__post-writer block">
-            <div class="post-write__container">
+        <div className="post-write content__post-writer block">
+            <div className="post-write__container">
                 <PostWriteTitle />
-                <div class="line"></div>
+                <div className="line"></div>
 
                 {/* Form (title, news) */}
                 <PostForm/>

@@ -1,24 +1,13 @@
 .auth__container {
     padding: 13px;
   }
-  .auth__section-row {
-    margin-bottom: 13px;
-  }
-  
-  .auth__inputs {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
+
   .auth__inputs .input__container:not(:last-child), 
   .auth__selects .select__container:not(:last-child) {
     margin-right: 7px;
+  }
+  .auth__section-row {
+    margin-bottom: 13px;
   }
   
   .auth__form_bottom {

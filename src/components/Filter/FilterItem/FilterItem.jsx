@@ -5,10 +5,10 @@ import './FilterItem.css';
 
 const FilterItem = ({value, icon}) => {
     return (
-        <div class="filter__item">
-            <button class="filter__btn">
+        <div className="filter__item">
+            <button className="filter__btn">
                 <FontAwesomeIcon icon={icon}/>
-                <span class="filter__btn-text">{value}</span>
+                <span className="filter__btn-text">{value}</span>
             </button>
         </div>
     );

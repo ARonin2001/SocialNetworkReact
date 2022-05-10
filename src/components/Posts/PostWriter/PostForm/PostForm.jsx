@@ -6,11 +6,11 @@ import './PostForm.css';
 
 const PostForm = (props) => {
     return (
-        <form class="post-write__form form-post">
+        <form className="post-write__form form-post">
             {/* Title */}
             {/* <FormTitle /> */}
             <FormContent/>
-            <div class="line"></div>
+            <div className="line"></div>
             {/* Description for post */}
             <PostBottom />
         </form>

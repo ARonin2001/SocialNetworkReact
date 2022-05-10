@@ -6,8 +6,8 @@ import { faHourglassEnd, faHourglassStart, faShuffle } from "@fortawesome/free-s
 
 const Filter = (props) => {
     return (
-        <div class="content__filter filter block">
-            <div class="filter__container">
+        <div className="content__filter filter block">
+            <div className="filter__container">
                 <FilterItem value={"new posts"} icon={faHourglassStart} />
                 <FilterItem value={"old posts"} icon={faHourglassEnd} />
                 <FilterItem value={"random posts"} icon={faShuffle} />
