@@ -28,7 +28,7 @@ const Register = ({selects, inputs, ...props}) => {
 
             {/* date of birth */}
             <div className="auth__date-time auth__section-row">
-                <Input title={"DateBirth"} type={"date"} name={"dateBirth"} inputId={"datebirth"} change={props.handleChange} value={props.values.dateBirth} errors={props.errors} />
+                <Input title={"DateBirth"} type={"date"} name={"dateBirth"} inputId={"datebirth"} onChange={props.handleChange} value={props.values.dateBirth} errors={props.errors} />
             </div>
 
             {/* gender */}
