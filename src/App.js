@@ -9,9 +9,8 @@ import Footer from './components/Footer/Footer';
 import AsideUser from './components/AsideUser/AsideUser';
 import AsideRight from './components/AsideRight/AsideRitght';
 import News from './components/News/News';
-import Login from './components/Auth/Login/Login';
-import Register from './components/Auth/Register/Register';
 import AuthRegister from './components/Auth/AuthRegister/AuthRegister';
+import AuthLogin from './components/Auth/AuthLogin/AuthLogin';
 
 function App() {
   return (
@@ -25,8 +24,7 @@ function App() {
               <div className='content__container'>
                 <Routes>
                   <Route path="/" element={<News/>} />
-                  <Route path="/auth/login" element={<Login />} />
-                  {/* <Route path="/auth/register" element={<Register />} /> */}
+                  <Route path="/auth/login" element={<AuthLogin />} />
                   <Route path="/auth/register" element={<AuthRegister/>} />
                 </Routes>
               </div>
