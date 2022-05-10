@@ -41,6 +41,8 @@ const AuthRegister = (props) => {
             city: Yup.string()
                 .required('Required'),
             dateBirth: Yup.date()
+                .min(new Date("1901-01-01"), "Max date is 01-01-1901")
+                .max(new Date("2010-01-01"), "Min date is 01-01-2010")
                 .default(() => new Date())    
                 .required('Required'),
         }),
