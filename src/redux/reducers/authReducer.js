@@ -46,4 +46,16 @@ export const getLoginUser = (email, password) => {
     }
 }
 
+export const createNewUser = (userData) => {
+    return async (dispatch) => {
+        let response = await usersAPI.createNewUser(userData);
+        console.log(response);
+        if(response.status === 201) {
+            dispatch(getLoginUser(userData.email, userData.password));
+        } else {
+            return response;
+        }
+    }
+}
+
 export default authReducer;

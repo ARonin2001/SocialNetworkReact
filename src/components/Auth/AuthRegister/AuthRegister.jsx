@@ -5,7 +5,8 @@ import { useFormik } from "formik";
 import '../Auth.css';
 import AuthForm from "../AuthForm/AuthForm";
 import RegisterContainer from "../Register/RegisterContainer";
-
+import { connect } from "react-redux";
+import { createNewUser } from "../../../redux/reducers/authReducer";
 
 const AuthRegister = (props) => {
     const formik = useFormik({
@@ -47,7 +48,8 @@ const AuthRegister = (props) => {
                 .required('Required'),
         }),
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+            let response = props.createNewUser(values);
+            console.log(response);
         },
     });
 
@@ -68,4 +70,7 @@ const AuthRegister = (props) => {
     );
 };
 
-export default AuthRegister;
+export default connect(
+    null, 
+    {createNewUser}
+)(AuthRegister);

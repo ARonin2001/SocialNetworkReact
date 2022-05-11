@@ -8,7 +8,7 @@ const Select = ({ title, values, selectId, errors, name, ...props }) => {
         <div className="select__container">
             <label className="select__label" htmlFor={selectId}>{title}</label>
             <select className="select" id={selectId} name={name} onChange={props.change}>
-                <option className="select__header" value={title} disabled>{title}</option>
+                <option className="select__header" value={title} disabled selected="selected">{title}</option>
                 {
                     values.map(value => {
                         return <option className="select__value" value={value}>{value}</option>
