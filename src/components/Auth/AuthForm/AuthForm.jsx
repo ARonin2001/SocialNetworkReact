@@ -5,13 +5,12 @@ import AuthFormFooter from "./AuthFormFooter/AuthFormFooter";
 
 const AuthForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit} >
+        <form onSubmit={props.handleSubmit} noValidate>
             <div className="auth__inputs-container">
                 {props.children}
             </div>
-            
-            <AuthFormFooter btnName={"REGISTER"} />
-            
+            <button type="submit">LOGIN</button>
+            {/* <AuthFormFooter btnName={"REGISTER"} /> */}
         </form >
     );
 };
