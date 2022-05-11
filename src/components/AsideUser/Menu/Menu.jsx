@@ -1,7 +1,7 @@
 import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronUp, faHome, faCircleUser, faUserGroup, faMessage, faNewspaper } from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp} from "@fortawesome/free-solid-svg-icons";
 import './Menu.css';
 import SubLiMenu from "./SubLiMenu/SubLiMenu";
 
@@ -16,7 +16,7 @@ const menuToggle = (e) => {
     accordionBlock(menuSubUl)
 }
 
-const Menu = (props) => {
+const Menu = ({subLi}) => {
     return (
         <div className="menu aside-user-menu block">
             <div className="menu__container">
@@ -28,11 +28,11 @@ const Menu = (props) => {
                         </div>
 
                         <ul className="menu__sub-ul">
-                            <SubLiMenu subTitle={"Home"} icon={faHome} link={"#"}/>
-                            <SubLiMenu subTitle={"About me"} icon={faCircleUser} link={"#"}/>
-                            <SubLiMenu subTitle={"Friends"} icon={faUserGroup} link={"#"}/>
-                            <SubLiMenu subTitle={"Messages"} icon={faMessage} link={"#"}/>
-                            <SubLiMenu subTitle={"News"} icon={faNewspaper} link={"/"}/>
+                            {
+                                subLi.map(li => {
+                                    return <SubLiMenu key={li.id} subTitle={li.title} icon={li.icon} link={li.link}/>
+                                })
+                            }
                         </ul>
                     </li>
                 </ul>

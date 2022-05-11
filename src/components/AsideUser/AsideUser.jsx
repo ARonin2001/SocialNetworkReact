@@ -2,7 +2,7 @@ import React from "react";
 
 
 import './AsideUser.css';
-import Menu from "./Menu/Menu";
+import MenuContainer from "./Menu/MenuContainer";
 import UserBlock from "./UserBlock/UserBlock";
 
 const AsideUser = (props) => {
@@ -11,7 +11,7 @@ const AsideUser = (props) => {
             <div className="aside-user__container __container-aside_left">
                 <UserBlock />
 
-                <Menu />
+                <MenuContainer />
             </div>
         </aside>
     );
