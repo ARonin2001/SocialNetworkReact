@@ -23,7 +23,7 @@ function App() {
             <div className='content'>
               <div className='content__container'>
                 <Routes>
-                  <Route path="/" element={<News/>} />
+                  <Route path="/news" element={<News/>} />
                   <Route path="/auth/login" element={<AuthLogin />} />
                   <Route path="/auth/register" element={<AuthRegister/>} />
                 </Routes>
