@@ -9,8 +9,7 @@ const AuthForm = (props) => {
             <div className="auth__inputs-container">
                 {props.children}
             </div>
-            <button type="submit">LOGIN</button>
-            {/* <AuthFormFooter btnName={"REGISTER"} /> */}
+            <AuthFormFooter btnName={"REGISTER"} />
         </form >
     );
 };

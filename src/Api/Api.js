@@ -22,5 +22,9 @@ export const usersAPI = {
         })
         .then(response => response);
     },
+    createNewUser(newUserData) {
+        return instance.post('users/create', newUserData)
+            .then(response => response);
+    }
 };
 
