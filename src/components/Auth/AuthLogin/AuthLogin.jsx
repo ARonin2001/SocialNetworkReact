@@ -38,7 +38,7 @@ const AuthLogin = (props) => {
     });
 
     if (props.isAuth)
-        return <Navigate to="/news" />
+        return <Navigate to="/profile" />
 
     return (
         <div className="block auth">

@@ -1,0 +1,14 @@
+.input-status__container {
+    padding: 13px;
+}
+
+.input-status__form {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.input-status__btn {
+    margin-top: 10px;
+}
