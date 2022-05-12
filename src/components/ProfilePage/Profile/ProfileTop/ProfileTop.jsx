@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import ProfileLanguages from '../ProfileLanguages/ProfileLanguages';
 
@@ -11,7 +11,7 @@ const ProfileTop = (props) => {
                 <ProfileLanguages languages={[{ id: 1, lng: "English" }]} />
 
                 <div className="profile__languages_bottom">
-                    <button className="profile__languages-more">Подробнее...</button>
+                    <button className="profile__languages-more" onClick={props.openLanguagesBlock}>Подробнее...</button>
                 </div>
             </div>
         </div>
