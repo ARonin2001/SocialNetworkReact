@@ -1,0 +1,70 @@
+.language {
+    background: #FF676B;
+    border-radius: 50px;
+    color: #fff;
+    padding: 4px 13px;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+.user-lng__language {
+  z-index: 10;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.user-lng__language:not(:last-child) {
+  margin-right: 5px;
+}
+
+.user-lng .language__study {
+  z-index: 20;
+}
+
+.user-lng .language__container.active .language__levels {
+  left: 26px;
+}
+
+.user-lng .language__levels {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 99%;
+  height: 99%;
+  background: #263337;
+  border-radius: 50px;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 6px 7px;
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+
+.user-lng .language__level {
+  width: 15px;
+  height: 3px;
+  background: #DCE2DF;
+}
+
+.user-lng .language__level:not(:last-child) {
+  margin-bottom: 2px;
+}
+
+.user-lng .language__level_active {
+  background: #1FC375;
+}
