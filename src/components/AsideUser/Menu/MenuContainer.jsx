@@ -4,7 +4,7 @@ import { faHome, faCircleUser, faUserGroup, faMessage, faNewspaper } from "@fort
 
 const MenuContainer = (props) => {
     const subLiMenuData = [
-        {id: 1, title: "Home", link: "#", icon: faHome},
+        {id: 1, title: "Home", link: "/profile", icon: faHome},
         {id: 2, title: "About me", link: "#", icon: faCircleUser },
         {id: 3, title: "Friends", link: "#", icon: faUserGroup},
         {id: 4, title: "Messages", link: "#", icon: faMessage},
