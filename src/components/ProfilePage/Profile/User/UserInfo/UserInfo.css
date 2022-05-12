@@ -1,0 +1,15 @@
+.user__name {
+    font-weight: 700;
+    font-size: 36px;
+    color: #FFFFFF;
+    margin-bottom: 6px;
+  }
+  
+  .user__status {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #FFFFFF;
+    max-width: 480px;
+    max-height: 55px;
+  }

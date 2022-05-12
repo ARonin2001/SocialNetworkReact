@@ -1,0 +1,44 @@
+.ava {
+    position: relative;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-right: 14px;
+    cursor: pointer;
+  }
+  
+  .ava img {
+    width: 95px;
+    border: 4px solid #FF676B;
+    border-radius: 100px;
+  }
+  
+  .ava:hover .ava_change {
+    bottom: 0;
+  }
+  
+  .ava_change {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    left: 0;
+    bottom: -100%;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .ava-icon {
+    font-size: 32px;
+    color: #fff;
+  }
