@@ -1,0 +1,83 @@
+.profile {
+    width: 100vw;
+    height: 418px;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    position: relative;
+  }
+  
+  .profile:hover {
+    background: rgba(0, 0, 0, 0.45);
+  }
+  
+  .profile:hover .profile__top {
+    top: 0;
+  }
+  
+  .profile:hover .profile__bottom {
+    bottom: 0;
+  }
+
+  .profile__container {
+    height: 100%;
+    padding: 27px 41px 26px 51px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    box-sizing: border-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .profile__buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  
+  .profile__user-lng {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    max-width: 331px;
+  }
+  
+  .profile__user-lng_close {
+    cursor: pointer;
+  }
+  
+  .profile__user-lng_close:before,
+  .profile__user-lng_close:after {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: #747171;
+  }
+  
+  .profile__user-lng_close:before {
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  
+  .profile__user-lng_close:after {
+    -webkit-transform: translateY(-3px) rotate(-45deg);
+        -ms-transform: translateY(-3px) rotate(-45deg);
+            transform: translateY(-3px) rotate(-45deg);
+  }
