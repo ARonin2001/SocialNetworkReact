@@ -1,0 +1,23 @@
+.user-lng__sub-title {
+    font-weight: 300;
+    font-size: 20px;
+    margin-bottom: 9px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  
+  .user-lng__sub-title:hover .user-lng__item-icon {
+    display: inline;
+  }
+  
+  .user-lng__item-icon {
+    display: none;
+    font-size: 17px;
+    color: #1FC375;
+    margin-left: 6px;
+    cursor: pointer;
+  }
