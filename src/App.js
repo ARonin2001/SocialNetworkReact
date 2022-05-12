@@ -11,6 +11,7 @@ import AsideRight from './components/AsideRight/AsideRitght';
 import News from './components/News/News';
 import AuthRegister from './components/Auth/AuthRegister/AuthRegister';
 import AuthLogin from './components/Auth/AuthLogin/AuthLogin';
+import Profile from './components/ProfilePage/Profile/Profile';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
       <div className='wraper'>
         <Header />
         <div className='main'>
+          <Routes>
+            <Route path="/profile" element={<Profile/>} />
+          </Routes>
           <div className="main-content __container">
             <AsideUser />
             <div className='content'>
