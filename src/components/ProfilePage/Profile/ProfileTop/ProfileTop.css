@@ -1,0 +1,35 @@
+.profile__top {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    position: relative;
+    top: -240px;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+  }
+
+  .profile__languages {
+    margin: 0 auto;
+    max-width: 398px;
+    max-height: 216px;
+    width: 100%;
+  }
+
+  .profile__languages_bottom {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .profile__languages-more {
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+    background: none;
+  }
