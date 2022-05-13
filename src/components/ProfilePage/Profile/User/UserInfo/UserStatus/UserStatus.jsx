@@ -2,9 +2,9 @@ import React from 'react';
 
 import './UserStatus.css';
 
-const UserStatus = ({status, OnEditStatus}) => {
+const UserStatus = ({status, openStatusEdit}) => {
     return (
-        <div className="user__status" onDoubleClick={OnEditStatus}>
+        <div className="user__status" onDoubleClick={openStatusEdit}>
             {status}
         </div>
     );

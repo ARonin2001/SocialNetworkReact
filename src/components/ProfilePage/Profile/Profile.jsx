@@ -14,21 +14,30 @@ import UserLng from '../../UserLng/UserLng';
 
 const Profile = (props) => {
     let [isLanguagesBlock, setLanguagesBlock] = useState(false);
+    let [isStatusEdit, setStatusEdit] = useState(false);
 
-    const openLanguagesBlock = () => {
-        setLanguagesBlock(true);
-    }
+    const openLanguagesBlock = () => setLanguagesBlock(true);
 
-    const closeLanguagesBlock = () => {
-        setLanguagesBlock(false);
+
+    const closeLanguagesBlock = () => setLanguagesBlock(false);
+    
+
+    const openStatusEdit = () => setStatusEdit(true);
+    
+
+    const closeStatusEdit = () => setStatusEdit(false);
+
+    const onClickBackgroundCoverage  = () => {
+        closeLanguagesBlock();
+        closeStatusEdit();
     }
 
     return (
         <div className="profile main__profile">
             <div className="profile__container">
-                <div className="background__coverage" onClick={closeLanguagesBlock}></div>
+                <div className="background__coverage" onClick={onClickBackgroundCoverage}></div>
                 <ProfileTop openLanguagesBlock={openLanguagesBlock} />
-                <ProfileBottom />
+                <ProfileBottom openStatusEdit={openStatusEdit} isStatusEdit={isStatusEdit} />
 
                 {/* user languages */}
                 {
@@ -36,7 +45,7 @@ const Profile = (props) => {
                 }
             </div>
 
-            <ProfileBackground backgroundIMG={backDefault} />
+            <ProfileBackground backgroundIMG={backDefault}  />
         </div>
     );
 };

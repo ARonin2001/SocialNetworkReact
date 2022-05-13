@@ -4,26 +4,20 @@ import './UserInfo.css';
 import UserStatus from "./UserStatus/UserStatus";
 import InputStatusContainer from './UserStatus/InputStatus/InputStatusContainer';
 
-const UserInfo = ({name, status}) => {
-    let [isEditStatus, setEditStatus] = useState(false);
-
-    const OnEditStatus = () => {
-        setEditStatus(true);
-    }
-
+const UserInfo = ({name, status, ...props}) => {
     return (
         <>
             {
-                isEditStatus && 
+                props.isStatusEdit && 
                     <InputStatusContainer />
             }
             {
-                !isEditStatus && 
+                !props.isStatusEdit && 
                     <div className="user__info">
                         <div className="user__name">
                             {name}
                         </div>
-                        <UserStatus status={status} OnEditStatus={OnEditStatus} />
+                        <UserStatus status={status} openStatusEdit={props.openStatusEdit} />
                     </div>
             }
         </>

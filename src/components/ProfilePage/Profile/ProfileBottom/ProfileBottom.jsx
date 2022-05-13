@@ -17,7 +17,9 @@ const ProfileBottom = (props) => {
             <User
                 avaIMG={avaDefault}
                 name={"Mister Bin"}
-                status={"It’s my very beautifule status. Eee man. I’m a React developer. I’m a best of the best React developer yes."} />
+                status={"It’s my very beautifule status. Eee man. I’m a React developer. I’m a best of the best React developer yes."}
+                openStatusEdit={props.openStatusEdit} 
+                isStatusEdit={props.isStatusEdit} />
 
             <div className="profile__buttons">
                 <ProfileBtn btnText={"Add to friend"} icon={faUserPlus} action={"add"} />
