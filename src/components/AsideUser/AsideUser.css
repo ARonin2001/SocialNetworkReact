@@ -1,6 +1,6 @@
 .aside-left {
     grid-area: lef;
-    max-height: 265px;
+    max-width: 265px;
   }
   
   .aside-left .__container-aside_left {
