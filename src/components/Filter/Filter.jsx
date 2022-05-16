@@ -2,15 +2,18 @@ import React from "react";
 import FilterItem from "./FilterItem/FilterItem";
 
 import './Filter.css';
-import { faHourglassEnd, faHourglassStart, faShuffle } from "@fortawesome/free-solid-svg-icons";
 
 const Filter = (props) => {
     return (
         <div className="content__filter filter block">
             <div className="filter__container">
-                <FilterItem value={"new posts"} icon={faHourglassStart} />
-                <FilterItem value={"old posts"} icon={faHourglassEnd} />
-                <FilterItem value={"random posts"} icon={faShuffle} />
+                {
+                    props.values.map((value, index) => {
+                        return (
+                            <FilterItem key={index} value={value} icon={props.icons[index]} index={index} method={props.method} />
+                        )
+                    })
+                }
             </div>
         </div>
     );
