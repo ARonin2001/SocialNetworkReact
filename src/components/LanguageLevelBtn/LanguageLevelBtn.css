@@ -6,12 +6,14 @@
     font-weight: 400;
     font-size: 20px;
     text-align: center;
+    user-select: none;
   }
   
 .user-lng__language {
   z-index: 10;
   margin-bottom: 12px;
   position: relative;
+  cursor: pointer;
 }
 
 .user-lng__language:not(:last-child) {
@@ -20,6 +22,14 @@
 
 .user-lng .language__study {
   z-index: 20;
+}
+
+.user-lng .language__container {
+  transition: all .2s;
+}
+
+.user-lng .language__container.active {
+  margin: 0 33px 10px 0;
 }
 
 .user-lng .language__container.active .language__levels {
