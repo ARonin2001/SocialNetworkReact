@@ -12,6 +12,7 @@ import News from './components/News/News';
 import AuthRegister from './components/Auth/AuthRegister/AuthRegister';
 import AuthLogin from './components/Auth/AuthLogin/AuthLogin';
 import Profile from './components/ProfilePage/Profile/Profile';
+import ProfileContent from './components/ProfilePage/ProfileContent/ProfileContent';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Header />
         <div className='main'>
           <Routes>
-            <Route path="/profile" element={<Profile/>} />
+            <Route path="/profile/:id" element={<Profile/>} />
           </Routes>
           <div className="main-content __container">
             <AsideUser />
@@ -30,6 +31,7 @@ function App() {
                   <Route path="/news" element={<News/>} />
                   <Route path="/auth/login" element={<AuthLogin />} />
                   <Route path="/auth/register" element={<AuthRegister/>} />
+                  <Route path="/profile/:id" element={<ProfileContent />} />
                 </Routes>
               </div>
             </div>
