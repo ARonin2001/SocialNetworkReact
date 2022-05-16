@@ -9,7 +9,7 @@ const AuthForm = (props) => {
             <div className="auth__inputs-container">
                 {props.children}
             </div>
-            <AuthFormFooter btnText={props.btnText} />
+            <AuthFormFooter link={props.link} linkText={props.linkText} btnText={props.btnText} />
         </form >
     );
 };

@@ -48,7 +48,7 @@ const AuthLogin = (props) => {
                 <div className="line"></div>
                 {/* Formik */}
                 
-                <AuthForm handleSubmit={formik.handleSubmit} btnText={"LOGIN"}>
+                <AuthForm handleSubmit={formik.handleSubmit} btnText={"LOGIN"} linkText={"Register"} link={"/auth/register"}>
                     <LoginContainer formik={formik} />
                 </AuthForm>
             </div>

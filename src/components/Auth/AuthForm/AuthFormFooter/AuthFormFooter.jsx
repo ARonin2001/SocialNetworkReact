@@ -11,7 +11,7 @@ const AuthFormFooter = (props) => {
             </div>
             <div className="auth__form_right">
                 <NavLink to="#" className="auth__link">Forgot Password</NavLink>
-                <NavLink to="/auth/login" className="auth__link">Login</NavLink>
+                <NavLink to={props.link} className="auth__link">{props.linkText}</NavLink>
             </div>
         </div>
     );
