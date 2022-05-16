@@ -1,0 +1,12 @@
+.user-info__sub-title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 7px;
+  }
+  
+  .user-info__description {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+  }
