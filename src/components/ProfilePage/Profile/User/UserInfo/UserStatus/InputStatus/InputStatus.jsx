@@ -4,11 +4,11 @@ import Input from './../../../../../../Input/Input';
 
 import './InputStatus.css';
 
-const InputStatus = (props) => {
+const InputStatus = ({formik}) => {
     return (
         <div className="input-status__container block">
-            <form className="input-status__form" id="status__form">
-                <Input title={"Status"} type={"text"} name={"status"} value={""} errors={""} />
+            <form onSubmit={formik.handleSubmit} className="input-status__form" id="status__form">
+                <Input title={"Status"} type={"text"} name={"status"} onChange={formik.handleChange} value={formik.values.status} errors={formik.errors} />
                 
                 <button className="btn input-status__btn" type={"submit"}>SAVE</button>
             </form>

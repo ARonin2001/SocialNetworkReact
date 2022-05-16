@@ -1,13 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './UserStatus.css';
 
 const UserStatus = ({status, openStatusEdit}) => {
     return (
         <div className="user__status" onDoubleClick={openStatusEdit}>
-            {status}
+            {status ? status : "Status"}
         </div>
     );
 };
 
-export default UserStatus
+let mapStateToProps = state => {
+    return {
+        status: state.profilePage.profile.aboutMe.status
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {}
+)
+(UserStatus);
