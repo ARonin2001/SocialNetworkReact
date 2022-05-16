@@ -3,7 +3,7 @@ import { headerAPI, usersAPI } from "../../Api/Api";
 const SET_USER_DATA = "SET-USER-DATA";
 
 let initialState = {
-    userId: null,
+    id: null,
     email: null,
     password: null,
     isAuth: false
@@ -18,8 +18,8 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
-export const setAuthUserData = (userId, email, password, isAuth = false) => ({type: SET_USER_DATA, data: {
-    userId, email, password, isAuth
+export const setAuthUserData = (id, email, password, isAuth = false) => ({type: SET_USER_DATA, data: {
+    id, email, password, isAuth
 }});
 
 export const getAuthUserData = () => {
@@ -27,8 +27,8 @@ export const getAuthUserData = () => {
         let data = await headerAPI.getAuthUsers();
         
         if(data.resultCode === 0) {
-            let {id, email, login} = data.data;
-            dispatch(setAuthUserData(id, email, login, true));
+            let {_id, email, login} = data.data;
+            dispatch(setAuthUserData(_id, email, login, true));
         } 
     }
 }
@@ -38,8 +38,8 @@ export const getLoginUser = (email, password) => {
         let data = await usersAPI.getLoginUser(email, password);
 
         if(data.status === 200) {
-            let {id, email, password} = data.data.user;
-            dispatch(setAuthUserData(id, email, password, true));
+            let {_id, email, password} = data.data.user;
+            dispatch(setAuthUserData(_id, email, password, true));
         } else {
             // let messageError = data.messages.length > 0 ? data.messages[0] : "Some error";
         }
@@ -49,7 +49,6 @@ export const getLoginUser = (email, password) => {
 export const createNewUser = (userData) => {
     return async (dispatch) => {
         let response = await usersAPI.createNewUser(userData);
-        console.log(response);
         if(response.status === 201) {
             dispatch(getLoginUser(userData.email, userData.password));
         } else {
