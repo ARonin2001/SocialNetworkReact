@@ -36,9 +36,8 @@ const AuthLogin = (props) => {
             authLogin(values.email, values.password);
         },
     });
-
     if (props.isAuth)
-        return <Navigate to="/profile" />
+        return <Navigate to={`/profile/${props.userId}`} />
 
     return (
         <div className="block auth">
@@ -49,7 +48,7 @@ const AuthLogin = (props) => {
                 <div className="line"></div>
                 {/* Formik */}
                 
-                <AuthForm handleSubmit={formik.handleSubmit}>
+                <AuthForm handleSubmit={formik.handleSubmit} btnText={"LOGIN"}>
                     <LoginContainer formik={formik} />
                 </AuthForm>
             </div>
@@ -59,7 +58,8 @@ const AuthLogin = (props) => {
 
 let mapStateToProps = state => {
     return {
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        userId: state.auth.id,
     }
 }
 
