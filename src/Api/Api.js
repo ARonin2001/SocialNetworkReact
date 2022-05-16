@@ -13,6 +13,13 @@ export const headerAPI = {
         return instance.get(`auth/me`)
         .then(response => response.data);
     }
+};
+
+export const profileAPI = {
+    getUserProfile(userId) {
+        return instance.get(`profile/${userId}`)
+            .response(response => response.data);
+    },
 }
 
 export const usersAPI = {
@@ -25,6 +32,13 @@ export const usersAPI = {
     createNewUser(newUserData) {
         return instance.post('users/create', newUserData)
             .then(response => response);
-    }
+    },
+    updateStatus(userId, status) {
+        return instance.put(`user/update/status/${userId}`, {status: status});
+    },
+    getStatus(userId) {
+        return instance.get(`user/status/${userId}`)
+            .then(response => response);
+    },
 };
 
