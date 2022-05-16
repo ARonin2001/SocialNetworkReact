@@ -1,13 +1,13 @@
 import React from "react";
 
-import { faBullseye, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
+import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import './Item.css';
 import LanguageBtn from "../../../LanguageBtn/LanguageBtn";
 import LanguageLevelBtn from "../../../LanguageLevelBtn/LanguageLevelBtn";
 
-const Item = ({title, languages, isLevel=faBullseye}) => {
+const Item = ({title, languages, isLevel=false}) => {
     return (
         <div className="user-lng__item">
             <div className="user-lng__sub-title">
@@ -17,7 +17,7 @@ const Item = ({title, languages, isLevel=faBullseye}) => {
             <div class="user-lng__language-items">
                 {
                     languages.map(language => {
-                        if(isLevel)
+                        if(!isLevel)
                             return <LanguageBtn 
                                 key={language.id} 
                                 classes={"user-lng__language"} 
