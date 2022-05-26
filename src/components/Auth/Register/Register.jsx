@@ -20,7 +20,7 @@ const Register = ({selects, inputs, ...props}) => {
                 {
                     selects.map(select => {
                         return (
-                            <Select title={select.title} name={select.name} values={select.values} selectId={select.name} errors={props.errors} change={props.handleChange} value={props.values[select.name]}/>
+                            <Select title={select.title} name={select.name} values={select.values} errors={props.errors} change={props.handleChange} value={props.values[select.name]}/>
                         )
                     })
                 }
