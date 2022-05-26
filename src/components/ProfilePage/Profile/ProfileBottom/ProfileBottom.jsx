@@ -16,7 +16,7 @@ const ProfileBottom = (props) => {
                 avaIMG={props.avaImg}
                 name={props.name}
                 lastName={props.lastName}
-                status={"It’s my very beautifule status. Eee man. I’m a React developer. I’m a best of the best React developer yes."}
+                status={""}
                 openStatusEdit={props.openStatusEdit} 
                 isStatusEdit={props.isStatusEdit}
                 showUploadAva={props.showUploadAva} />

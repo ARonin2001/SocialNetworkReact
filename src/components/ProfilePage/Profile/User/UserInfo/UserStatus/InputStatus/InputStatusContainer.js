@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import InputStatus from "./InputStatus";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { updateUserStatus } from "../../../../../../../redux/reducers/profileReducer";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
+import withPreloader from './../../../../../../HOC/withPreloader/withPreloader';
 
-const InputStatusContainer = (props) => {
+const InputStatusContainer = ({userId, ...props}) => {
     let params = useParams();
+
+    let [isPreloader, setPreloader] = useState(false);
+
+    const InputStatusWithPreloader = withPreloader(InputStatus);
+
+    const updateStatus = async(values) => {
+        setPreloader(true);
+
+        if(params.id === userId)
+            await props.updateUserStatus(userId, values.status);
+        
+        setPreloader(false);
+    }
 
     const formik = useFormik({
         initialValues: {
@@ -18,17 +32,26 @@ const InputStatusContainer = (props) => {
                 .max(100, "The max characters is 100")
         }),
         onSubmit: values => {
-            props.updateUserStatus(params.id, values.status);
+            updateStatus(values);
+            // if(params.id === userId)
+            //     props.updateUserStatus(userId, values.status);
         }
     });
 
     return (
         <InputStatus formik={formik} />
+        // <InputStatusWithPreloader formik={formik} isPreloader={isPreloader} />
     );
 };
 
+const mapStateToProps = state => {
+    return {
+        userId: state.profilePage.profile._id
+    }
+}
+
 export default connect(
-    null,
+    mapStateToProps,
     {updateUserStatus}
 )
 (InputStatusContainer);

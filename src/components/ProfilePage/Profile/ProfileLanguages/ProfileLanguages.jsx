@@ -8,7 +8,7 @@ const ProfileLanguages = ({languages}) => {
         <div className="profile__languages_top">
             {
                 languages.map(language => {
-                    return <LanguageBtn key={language.id} language={language.lng} classes={"profile__language"} />
+                    return <LanguageBtn key={language._id} language={language.name} classes={"profile__language"} />
                 })
             }
         </div>

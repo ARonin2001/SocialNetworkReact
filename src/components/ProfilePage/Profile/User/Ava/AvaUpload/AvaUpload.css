@@ -1,8 +1,5 @@
 .ava-upload {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%);
+    min-width: 200px;
 }
 .ava-upload__content {
     display: flex;
@@ -13,15 +10,23 @@
 .ava-upload__form {
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
+    width: 100%;
 }
 .ava-upload__btn {
     align-self: flex-end;
     margin-top: 13px;
 }
-
 .ava-upload__img {
     width: 95px;
     border: 4px solid #FF676B;
     border-radius: 100px;
+}
+
+/* preloader */
+.update__ava {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
 }
