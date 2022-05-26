@@ -17,8 +17,8 @@ export const headerAPI = {
 
 export const profileAPI = {
     getUserProfile(userId) {
-        return instance.get(`profile/${userId}`)
-            .response(response => response.data);
+        return instance.get(`user/${userId}`)
+            .then(response => response.data);
     },
 }
 

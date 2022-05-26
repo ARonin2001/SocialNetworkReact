@@ -11,8 +11,8 @@ import AsideRight from './components/AsideRight/AsideRitght';
 import News from './components/News/News';
 import AuthRegister from './components/Auth/AuthRegister/AuthRegister';
 import AuthLogin from './components/Auth/AuthLogin/AuthLogin';
-import Profile from './components/ProfilePage/Profile/Profile';
 import ProfileContent from './components/ProfilePage/ProfileContent/ProfileContent';
+import ProfileContainer from './components/ProfilePage/Profile/ProfileContainer';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Header />
         <div className='main'>
           <Routes>
-            <Route path="/profile/:id" element={<Profile/>} />
+            <Route path="/profile/:id" element={<ProfileContainer/>} />
           </Routes>
           <div className="main-content __container">
             <AsideUser />

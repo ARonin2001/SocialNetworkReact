@@ -6,12 +6,6 @@
     cursor: pointer;
   }
   
-  .ava img {
-    width: 95px;
-    border: 4px solid #FF676B;
-    border-radius: 100px;
-  }
-  
   .ava:hover .ava_change {
     bottom: 0;
   }

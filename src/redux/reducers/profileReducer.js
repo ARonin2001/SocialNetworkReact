@@ -1,6 +1,7 @@
-import { usersAPI } from "../../Api/Api";
+import { usersAPI, profileAPI } from "../../Api/Api";
 
 const SET_STATUS = "SET-STATUS";
+const SET_USER_DATA = "SET-USER-DATA";
 
 let initialState = {
     profile: {
@@ -13,6 +14,10 @@ let initialState = {
             gender: null,
             dateBirth: null,
             status: null,
+        },
+        img: {
+            ava: null,
+            backImg: null,
         }
     }
 }
@@ -23,6 +28,8 @@ const profileReducer = (state = initialState, action) => {
             return {...state, profile: {...state.profile, 
                 aboutMe: {...state.profile.aboutMe, status: action.status} 
             }};
+        case SET_USER_DATA:
+            return {...state, profile: {...state.profile, ...action.data}}
         default:
             return state;
     };
@@ -30,7 +37,9 @@ const profileReducer = (state = initialState, action) => {
 
 // actions
 export const setStatus = (status) => ({type: SET_STATUS, status});
+export const setUser = (data) => ({type: SET_USER_DATA, data});
 
+// thukns
 export const updateUserStatus = (userId, status) => {
     return async (dispatch) => {
         let response = await usersAPI.updateStatus(userId, status);
@@ -38,7 +47,16 @@ export const updateUserStatus = (userId, status) => {
         if(response.status === 200) {
             dispatch(setStatus(status));
         }
+    }
+}
 
+export const setProfileData = (userId) => {
+    return async (dispatch) => {
+        let response = await profileAPI.getUserProfile(userId);
+
+        if(!response.status) {
+            dispatch(setUser(response));
+        }
     }
 }
 

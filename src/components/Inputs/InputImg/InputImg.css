@@ -1,0 +1,45 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+.input-file {
+    display: none;
+}
+.file-label {
+    display: block;
+    position: relative;
+    padding: 8px 15px;
+    border: 1px solid #FF676B;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 10;
+    transition: all .3s;
+    user-select: none;
+}
+.file-label::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #FF676B;
+    z-index: -1;
+    transition: all .3s;
+}
+.file-label:hover {
+    color: #fff;
+}
+.file-label:hover::before {
+    top: 0;
+}
+.file-error {
+    display: inline-block;
+    align-self: flex-end;
+    margin-top: 5px;
+    color: red;
+}

@@ -9,9 +9,10 @@ const User = ({name, avaIMG, status, ...props}) => {
     return (
         <div className="user">
             {/* Отдельная комнонента */}
-            <Ava avaIMG={avaIMG} />
+            <Ava avaIMG={avaIMG}  showUploadAva={props.showUploadAva}/>
             {/* name, lastName and status */}
-            <UserInfo name={name} status={status} 
+            <UserInfo name={name} lastName={props.lastName} 
+                status={status} 
                 openStatusEdit={props.openStatusEdit} 
                 isStatusEdit={props.isStatusEdit} />
         </div>
