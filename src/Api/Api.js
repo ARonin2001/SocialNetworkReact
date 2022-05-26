@@ -15,11 +15,32 @@ export const headerAPI = {
     }
 };
 
+export const languagesAPI = {
+    getLanguages() {
+        return instance.get(`/languages`)
+            .then(response => response);
+    }
+}
+
 export const profileAPI = {
     getUserProfile(userId) {
         return instance.get(`user/${userId}`)
             .then(response => response.data);
     },
+    addLanguage(typeLng, lng, userId, level = null) {
+        return instance.post(`user/languages/add/${typeLng}/${lng}/${level}/${userId}`)
+            .then(response => response);
+    },
+    updateAva(imgName, userId) {
+        let formData = new FormData();
+        formData.append("avatar", imgName);
+        
+        return instance.put(`user/upload/ava/${userId}`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+    }
 }
 
 export const usersAPI = {
