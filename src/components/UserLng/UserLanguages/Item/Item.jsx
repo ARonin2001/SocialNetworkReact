@@ -7,24 +7,37 @@ import './Item.css';
 import LanguageBtn from "../../../LanguageBtn/LanguageBtn";
 import LanguageLevelBtn from "../../../LanguageLevelBtn/LanguageLevelBtn";
 
-const Item = ({title, languages, isLevel=false}) => {
+const Item = ({title, languages, ...props}) => {
+    let typeLng;
+    let isLevel = false;
+    if(title.toLowerCase() === "native")
+        typeLng = "native";
+    else if(title.toLowerCase() === "fluent")
+        typeLng = "fluent";
+    else {
+        typeLng = "learning";
+        isLevel = true;
+    }
+
     return (
         <div className="user-lng__item">
             <div className="user-lng__sub-title">
                 {title}
-                <FontAwesomeIcon icon={faSquarePlus} className={"user-lng__item-icon"} />
+                <FontAwesomeIcon icon={faSquarePlus} className={"user-lng__item-icon"} 
+                    onClick={() => props.openAddLanguage(typeLng, isLevel)}  />
             </div>
-            <div class="user-lng__language-items">
+            <div className="user-lng__language-items">
                 {
                     languages.map(language => {
-                        if(!isLevel)
+                        if(!language.level)
                             return <LanguageBtn 
-                                key={language.id} 
+                                key={language._id} 
                                 classes={"user-lng__language"} 
-                                language={language.lng} />
+                                language={language.name} />
                                 
-                        return <LanguageLevelBtn 
-                                language={language.lng}
+                        return <LanguageLevelBtn
+                                key={language._id} 
+                                language={language.name}
                                 level={language.level} />
                     })
                 }

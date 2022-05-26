@@ -4,7 +4,7 @@ import UserLanguages from "./UserLanguages/UserLanguages";
 
 import './UserLng.css';
 
-const UserLng = ({props}) => {
+const UserLng = (props) => {
 
     return (
         <div className="user-lng block">
@@ -17,7 +17,8 @@ const UserLng = ({props}) => {
 
                 <div className="line"></div>
                 {/* items */}
-                <UserLanguages />
+                <UserLanguages languages={props.languages}
+                    openAddLanguage={props.openAddLanguage} />
             </div>
         </div>
     );
