@@ -3,21 +3,28 @@ import Errors from '../Errors/Errors';
 
 import './Select.css';
 
-const Select = ({ title, values, selectId, errors, name, ...props }) => {
+const Select = ({ title, values, name, errors = null, ...props }) => {
     return (
-        <div className="select__container">
-            <label className="select__label" htmlFor={selectId}>{title}</label>
-            <select className="select" id={selectId} name={name} onChange={props.change}>
-                <option className="select__header" value={title} disabled selected="selected">{title}</option>
+        <div className="select" tabIndex={"1"} >
+            <div className="select__container">
+                <input className="selectopt" name={name} type="radio" id={title} value={title} defaultChecked disabled/>
+                <label htmlFor={title} className="option">{title}</label>
                 {
-                    values.map(value => {
-                        return <option className="select__value" value={value}>{value}</option>
+                    values.map((item, key) => {
+                        if(item.name !== null) {
+                            return (
+                                <div key={key} >
+                                    <input className="selectopt" name={name} type="radio" id={item.name} value={item.name} defaultChecked onClick={props.change} />
+                                    <label htmlFor={item.name} className="option">{item.name}</label>
+                                </div>
+                            )
+                        }
+                        
                     })
                 }
                 {errors[name] ? <Errors error={errors[name]} /> : null}
-            </select>
+            </div>
         </div>
-
     );
 };
 
