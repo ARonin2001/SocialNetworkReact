@@ -1,5 +1,12 @@
-.avatar__img {
+.avatar {
     width: 95px;
+    height: 95px;
+}
+.avatar__img {
+    width: 100%;
+    height: 100%;
     border: 4px solid #FF676B;
     border-radius: 100px;
+    box-sizing: border-box;
+    object-fit: cover;
 }
