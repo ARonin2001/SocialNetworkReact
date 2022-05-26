@@ -1,0 +1,15 @@
+.add-lng__title {
+    margin-bottom: 7px;
+}
+.add-lng__form {
+    display: flex;
+    flex-direction: column;
+
+}
+.add-lng__btn {
+    margin-top: 13px;
+    align-self: flex-end;
+}
+.add-lng__section {
+    margin-bottom: 13px;
+}
