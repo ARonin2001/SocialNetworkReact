@@ -20,6 +20,7 @@
     max-width: 398px;
     max-height: 216px;
     width: 100%;
+    z-index: 20;
   }
 
   .profile__languages_bottom {

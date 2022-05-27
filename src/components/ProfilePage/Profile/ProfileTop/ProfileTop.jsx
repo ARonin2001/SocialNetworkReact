@@ -9,8 +9,8 @@ const ProfileTop = (props) => {
     let allLanguages = [...languages.native, ...languages.fluent, ...languages.learning];
     let sameLanguages = [];
     // убираем дубликаты языков
-    allLanguages = allLanguages.filter(item => {
-        if(!sameLanguages.includes(item.name)) {
+    allLanguages = allLanguages.filter((item, key) => {
+        if(!sameLanguages.includes(item.name) && key < 25) {
             sameLanguages.push(item.name);
             return item;
         }
