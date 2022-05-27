@@ -31,6 +31,10 @@ export const profileAPI = {
         return instance.post(`user/languages/add/${typeLng}/${lng}/${level}/${userId}`)
             .then(response => response);
     },
+    removeLanguage(typeLng, lngId, userId) {
+        return instance.delete(`user/languages/remove/${typeLng}/${lngId}/${userId}`)
+            .then(response => response);
+    },
     updateAva(imgName, userId) {
         let formData = new FormData();
         formData.append("avatar", imgName);
