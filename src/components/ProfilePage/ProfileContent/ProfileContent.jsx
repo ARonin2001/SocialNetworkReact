@@ -11,7 +11,7 @@ import Post from "../../Posts/Post/Post";
 const ProfileContent = (props) => {
     const filterItems = [
         <AboutMe />,
-        <UserLng languages={props.profile.languages} />
+        <UserLng languages={props.languages} />
     ];
 
     let [activeItem, setActiveItem] = useState(null);
