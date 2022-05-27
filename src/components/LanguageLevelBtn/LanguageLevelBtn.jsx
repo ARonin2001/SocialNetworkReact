@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LanguageBtn from '../LanguageBtn/LanguageBtn';
 
 import './LanguageLevelBtn.css';
 
@@ -31,10 +32,8 @@ const LanguageLevelBtn = ({ language, level = 1, classes = "" }) => {
     return (
         <div className={`user-lng__language language__container ${isActiveLevel ? "active" : ""}`}
             onClick={toggleActiveLevel}>
-
-            <div className={`language language__study ${classes}`}>
-                {language}
-            </div>
+            
+            <LanguageBtn language={language} classes={'language__study'}/>
             <div className="language language__levels">
                 {
                     reverseLanguagesLevel

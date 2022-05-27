@@ -78,3 +78,31 @@
 .user-lng .language__level_active {
   background: #1FC375;
 }
+
+/* language delete */
+.language_delete {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #54595E;
+  top: -6px;
+  right: -8px;
+}
+.language_delete::before, .language_delete::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 2px;
+  height: 11px;
+  background: #fff;
+  top: 50%;
+  left: 50%;
+  
+}
+.language_delete::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.language_delete::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
