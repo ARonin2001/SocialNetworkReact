@@ -22,18 +22,10 @@ const Profile = ({profile}) => {
     let [isShowUploadAva, setShowUploadAva] = useState(false);
     let [isAddLng, setAddLng] = useState(false);
 
-    let [typeLng, setTypeLng] = useState(null);
-    let [isLevel, setIsLevel] = useState(false);
-
     // user languages block
     const openLanguagesBlock = () => setLanguagesBlock(true);
     const closeLanguagesBlock = () => setLanguagesBlock(false);
 
-    const openAddLanguage = (typeLanguage, isLevel) => {
-        setAddLng(true);
-        setIsLevel(isLevel);
-        setTypeLng(typeLanguage);
-    } 
     const closeAddLanguage = () => {
         setAddLng(false);  
     } 
@@ -60,6 +52,8 @@ const Profile = ({profile}) => {
     }
 
     const AddingLng = withPageDimming(AddingLanguageContainer, closeAddLanguage);
+    const AvaUploadPageDimming = withPageDimming(AvaUploadContainer, closeUploadAva);
+    const UserLngPageDimming = withPageDimming(UserLng, closeLanguagesBlock);
 
     return (
         <div className="profile main__profile">
@@ -76,16 +70,16 @@ const Profile = ({profile}) => {
 
                 {/* user languages */}
                 {
-                    isLanguagesBlock && <UserLng languages={profile.languages} 
-                        openAddLanguage={openAddLanguage} />
+                    isLanguagesBlock && 
+                        <UserLngPageDimming languages={profile.languages} />
                 }
                 {
-                    isShowUploadAva && <AvaUploadContainer/>
+                    isShowUploadAva && 
+                        <AvaUploadPageDimming />
                 }
                 {
-                    isAddLng && <div className='profile__adding-lng'>
-                        <AddingLanguageContainer typeLng={typeLng} isLevel={isLevel} />
-                    </div> 
+                    isAddLng && 
+                        <AddingLng />
                 }
             </div>
 
