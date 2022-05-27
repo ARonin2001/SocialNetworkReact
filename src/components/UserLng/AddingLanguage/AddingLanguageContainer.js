@@ -50,9 +50,14 @@ const AddingLanguageContainer = (props) => {
     }
 
     return (
+        <>
+            {console.log("without hoc")}
+            <AddingLanguage isLevel={props.isLevel} languages={languages} formik={formik} />
+        
+        </>
         // <WithPreloaderAddingLanguages isLevel={props.isLevel} languages={languages} formik={formik} 
         //     isPreloader={isPreloader} />
-        <AddingLanguage isLevel={props.isLevel} languages={languages} formik={formik} />
+        
     );
 };
 

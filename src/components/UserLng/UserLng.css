@@ -2,6 +2,7 @@
     width: 100%;
     max-height: 400px;
     overflow-y: auto;
+    position: relative;
   }
   
   .user-lng__header {
@@ -26,7 +27,7 @@
   }
   
   .user-lng__language:not(:last-child) {
-    margin-right: 5px;
+    margin-right: 13px;
   }
   
   .user-lng__language-items {
@@ -38,4 +39,8 @@
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+  }
+
+  .user-lng__adding-lng__container {
+    
   }
