@@ -1,0 +1,13 @@
+.msg-a__container {
+    display: flex;
+    flex-direction: column;
+}
+.msg-a__answer {
+    font-size: 18px;
+}
+.msg-a__title, .msg-a__answer {
+    margin-bottom: 13px;
+}
+.msg-a__btn {
+    align-self: flex-end;
+}

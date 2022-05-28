@@ -1,0 +1,18 @@
+.msg-q {
+    min-width: 200px;
+}
+.msg-q__title {
+    margin-bottom: 7px;
+}
+.msg-q__buttons {
+    display: flex;
+    justify-content: space-between;
+}
+.msg-q__question {
+    font-size: 18px;
+    margin-bottom: 13px;
+    line-height: 1.2;
+}
+.msg-q__btn-yes {
+    background: #ff676b;
+}
