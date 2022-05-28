@@ -12,7 +12,8 @@ const UserLanguages = (props) => {
                     
                     return (
                         <Item key={item[0]} title={titleFirstSymbolUpperCase} languages={item[1]} 
-                        openAddLanguage={props.openAddLanguage} />
+                        openAddLanguage={props.openAddLanguage}
+                        openMessageQuestion={props.openMessageQuestion} />
                     )
                 })
             }

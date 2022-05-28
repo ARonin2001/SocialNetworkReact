@@ -17,6 +17,7 @@
   background: #54595E;
   top: -6px;
   right: -8px;
+  cursor: pointer;
 }
 .language_delete::before, .language_delete::after {
   content: '';

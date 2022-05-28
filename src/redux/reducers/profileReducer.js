@@ -108,7 +108,7 @@ export const addNewLanguage = (typeLng, lng, userId, level = null) => {
 export const removeUserLanguage = (typeLng, lngId, userId) => {
     return async (dispatch) => {
         let response = await profileAPI.removeLanguage(typeLng, lngId, userId);
-
+        console.log(response);
         if(response.status === 200) {
             dispatch(removeLanguage(typeLng, userId));
         }

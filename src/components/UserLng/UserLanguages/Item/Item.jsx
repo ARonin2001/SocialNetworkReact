@@ -33,7 +33,10 @@ const Item = ({title, languages, ...props}) => {
                             return <LanguageBtn 
                                 key={language._id} 
                                 classes={"user-lng__language"} 
-                                language={language.name} />
+                                language={language.name}
+                                languageId={language._id}
+                                method={props.openMessageQuestion}
+                                typeLng={typeLng} />
                                 
                         return <LanguageLevelBtn
                                 key={language._id} 

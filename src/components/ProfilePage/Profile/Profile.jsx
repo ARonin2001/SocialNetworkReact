@@ -11,6 +11,7 @@ import ProfileBackground from './ProfileBackground/ProfileBackground';
 import ProfileTop from './ProfileTop/ProfileTop';
 import ProfileBottom from './ProfileBottom/ProfileBottom';
 import UserLng from '../../UserLng/UserLng';
+import UserLngContainer from '../../UserLng/UserLngContainer';
 import AddingLanguageContainer from '../../UserLng/AddingLanguage/AddingLanguageContainer';
 import withPageDimming from '../../HOC/withPageDimming/withPageDimming';
 import AvaUploadContainer from './User/Ava/AvaUpload/AvaUploadContainer';
@@ -53,7 +54,7 @@ const Profile = ({profile}) => {
 
     const AddingLng = withPageDimming(AddingLanguageContainer, closeAddLanguage);
     const AvaUploadPageDimming = withPageDimming(AvaUploadContainer, closeUploadAva);
-    const UserLngPageDimming = withPageDimming(UserLng, closeLanguagesBlock);
+    const UserLngPageDimming = withPageDimming(UserLngContainer, closeLanguagesBlock);
 
     return (
         <div className="profile main__profile">
