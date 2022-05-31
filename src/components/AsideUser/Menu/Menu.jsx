@@ -16,7 +16,7 @@ const menuToggle = (e) => {
     accordionBlock(menuSubUl)
 }
 
-const Menu = ({subLi}) => {
+const Menu = ({subLi, isAuth}) => {
     return (
         <div className="menu aside-user-menu block">
             <div className="menu__container">
@@ -29,8 +29,10 @@ const Menu = ({subLi}) => {
 
                         <ul className="menu__sub-ul">
                             {
-                                subLi.map(li => {
-                                    return <SubLiMenu key={li.id} subTitle={li.title} icon={li.icon} link={li.link}/>
+                                subLi.map((li, key) => {
+                                    if(li.title.toLowerCase() === "home" && !isAuth)
+                                        return <SubLiMenu key={key} subTitle={li.title} icon={li.icon} link={"/auth/login"}  />
+                                    return <SubLiMenu key={key} subTitle={li.title} icon={li.icon} link={li.link}/>
                                 })
                             }
                         </ul>
