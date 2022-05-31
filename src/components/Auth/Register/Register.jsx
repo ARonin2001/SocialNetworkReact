@@ -3,7 +3,7 @@ import Select from "../../Select/Select";
 import Input from "../../Input/Input";
 
 import '../Auth.css';
-import RadioButton from "../RadioCheckButton/RadioCheckButton";
+import RadioButton from "../../RadioCheckButton/RadioCheckButton";
 import InputRow from "../../InputRow/InputRow";
 
 const Register = ({selects, inputs, ...props}) => {

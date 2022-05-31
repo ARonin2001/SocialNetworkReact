@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from 'yup';
 import { useFormik } from "formik";
 
-import '../Auth.css';
+import './AuthLogin.css';
 import AuthForm from "../AuthForm/AuthForm";
 import LoginContainer from "../Login/LoginContainer";
 import { getLoginUser } from "../../../redux/reducers/authReducer";
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
-
+import withPreloader from "../../HOC/withPreloader/withPreloader";
 
 const AuthLogin = (props) => {
-    const authLogin = (login, password) => {
+    let [isPreloader, setPreloader] = useState(false);
+
+    const LoginContainerWithPreloader = withPreloader(LoginContainer);
+
+    const authLogin = async (login, password) => {
         if (login && password) {
-            props.getLoginUser(login, password);
+            setPreloader(true);
+            await props.getLoginUser(login, password);
+            setPreloader(false);
         }
     }
 
@@ -27,10 +33,10 @@ const AuthLogin = (props) => {
                 .required(),
             password: Yup.string()
                 .required('Please Enter your password')
-                // .matches(
-                // /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/,
-                // "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number"
-                // ),
+            // .matches(
+            // /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/,
+            // "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number"
+            // ),
         }),
         onSubmit: values => {
             authLogin(values.email, values.password);
@@ -48,9 +54,17 @@ const AuthLogin = (props) => {
                 <div className="line"></div>
                 {/* Formik */}
                 
-                <AuthForm handleSubmit={formik.handleSubmit} btnText={"LOGIN"} linkText={"Register"} link={"/auth/register"}>
-                    <LoginContainer formik={formik} />
-                </AuthForm>
+                    <AuthForm handleSubmit={formik.handleSubmit} btnText={"LOGIN"} linkText={"Register"} link={"/auth/register"}>
+                        {
+                            isPreloader &&
+                                <LoginContainerWithPreloader formik={formik} isPreloader={isPreloader} />
+                        }
+                        {
+                            !isPreloader &&
+                                <LoginContainer formik={formik} />
+                        }
+                    </AuthForm>
+
             </div>
         </div>
     );
