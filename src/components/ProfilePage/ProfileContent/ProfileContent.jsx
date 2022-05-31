@@ -1,27 +1,20 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Filter from "../../Filter/Filter";
 import PostWriter from "../../Posts/PostWriter/PostWriter";
-import AboutMe from "./AboutMe/AboutMe";
 
-import './ProfileContent.css';
 import { faCircleUser, faGears, faGlobe } from '@fortawesome/free-solid-svg-icons';
-import UserLng from "../../UserLng/UserLng";
+import './ProfileContent.css';
+
+import AboutMe from "./AboutMe/AboutMe";
 import Post from "../../Posts/Post/Post";
+import UserLngContainer from '../../UserLng/UserLngContainer';
 
 const ProfileContent = (props) => {
-    const filterItems = [
-        <AboutMe />,
-        <UserLng languages={props.languages} />
-    ];
-
     let [activeItem, setActiveItem] = useState(null);
 
     // установить элемент по инедксу выбранному в блоке filter
     const setActiveFilterItem = (index) => {
-        filterItems.map((item, i) => {
-            if(index === i)
-                setActiveItem(item)
-        })
+        setActiveItem(index);
     }
 
     return (
@@ -29,8 +22,12 @@ const ProfileContent = (props) => {
             <PostWriter />
             <Filter values={["about me", "languages", "settings"]} icons={[faCircleUser, faGlobe, faGears]} method={setActiveFilterItem} />
             {
-                activeItem
-            }   
+                [
+                    <AboutMe aboutMe={props.profile.aboutMe} />,
+                    <UserLngContainer languages={props.profile.languages} />
+                ].filter((item, i) => i === activeItem)
+            }
+            
             <Post />         
         </div>
     )

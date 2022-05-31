@@ -4,13 +4,14 @@ import ProfileContent from './ProfileContent';
 
 const ProfileContentContainer = (props) => {
     return(
-        <ProfileContent languages={props.languages} />
+        <ProfileContent profile={props.profile} />
     )
 };
 
 const mapStateToProps = state => {
     return {
-        languages: state.profilePage.profile.languages
+        profile: state.profilePage.profile
+
     }
 }
 

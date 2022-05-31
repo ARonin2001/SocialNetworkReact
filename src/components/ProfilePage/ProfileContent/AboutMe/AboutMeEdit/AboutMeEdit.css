@@ -1,0 +1,17 @@
+.aboutm-me__form {
+    display: flex;
+    flex-direction: column;
+}
+.about-me__btn {
+    align-self: flex-end;
+}
+.about-me__inputs:not(:last-child) {
+    margin-bottom: 13px;
+}
+.about-me__inputs input[type="date"] {
+    max-width: 160px;
+}
+.about-me__gender-title {
+    margin-bottom: 13px;
+    font-size: 18px;
+}
