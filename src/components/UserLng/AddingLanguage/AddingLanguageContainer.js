@@ -12,18 +12,12 @@ import withPreloader from "../../HOC/withPreloader/withPreloader";
 const AddingLanguageContainer = (props) => {
     const params = useParams();
     
-    let [isPreloader, setPreloader] = useState(false);
-
     const WithPreloaderAddingLanguages = withPreloader(AddingLanguage);
 
     const addLanguage = async(values) => {
         if(params.id === props.userId) {
-            setPreloader(true);
-
             let level = values.level ? values.level : null;
             await props.addNewLanguage(props.typeLng, values.language, props.userId, level);
-
-            setPreloader(false);
         }
     }
 
@@ -51,7 +45,6 @@ const AddingLanguageContainer = (props) => {
 
     return (
         <>
-            {console.log("without hoc")}
             <AddingLanguage isLevel={props.isLevel} languages={languages} formik={formik} />
         
         </>
