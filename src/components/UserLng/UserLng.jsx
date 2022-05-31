@@ -7,43 +7,59 @@ import './UserLng.css';
 import withPageDimming from './../HOC/withPageDimming/withPageDimming';
 import MessageQuestion from '../Messages/MessageQuestion/MessageQuestion';
 import MessageAnwser from './../Messages/MessageAnwser/MessageAnwser';
+import EditLanguage from "./EditLanguage/EditLanguage";
 
 const UserLng = (props) => {
 
-    // let [typeLng, setTypeLng] = useState(null);
+    let [typeLng, setTypeLng] = useState(null);
     let [isLevel, setLevel] = useState(false);
-    // let [lngId, setLngId] = useState(null);
+    let [lngId, setLngId] = useState(null);
     let [isAddLng, setIsAddLng] = useState(false);
     let [isMessageQuestion, setMessageQuestion] = useState(false);
+    let [isEditLevel, setEditLevel] = useState(false);
 
     const openAddLanguage = (typeLng, level) => {
-        props.setTypeLng(typeLng);
         setLevel(level);
         setIsAddLng(true);
+        setTypeLng(typeLng);
     }
     const closeAddLanguages = () => setIsAddLng(false);
 
     // MessageQuestion
     const openMessageQuestion = (typeLng, lngId) => {
-        props.setTypeLng(typeLng);
-        props.setLngId(lngId);
         setMessageQuestion(true);
+        setTypeLng(typeLng);
+        setLngId(lngId);
     }
     const closeMessageQuestion = () => setMessageQuestion(false);
     const getResponseAndCloseMsgQuestion = (response) => {
-        props.getResponse(response);
         closeMessageQuestion();
+        props.getResponse(response, typeLng, lngId);
+    }
+
+    // edit language
+    const openEditLevel = (lngId) => {
+        setLngId(lngId);
+        setEditLevel(true);
+    }
+    const closeEditLevel = () => setEditLevel(false);
+    
+    const editLevel = (level) => {
+        setLevel(level);
+        props.editLevel(lngId, level);
+        setEditLevel(false);
     }
 
     const AddingLanguageWithPageDimming = withPageDimming(AddingLanguageContainer, closeAddLanguages);
     const MessageQestionWithPageDimming = withPageDimming(MessageQuestion, closeMessageQuestion);
     const MessageAnswerWithPageDimming = withPageDimming(MessageAnwser, props.closeMessageAnswer);
+    const EditLanguageWithPageDimming = withPageDimming(EditLanguage, closeEditLevel);
 
     return (
         <div className="user-lng block">
             {
                 isAddLng &&
-                <AddingLanguageWithPageDimming typeLng={props.typeLng} isLevel={isLevel} />
+                <AddingLanguageWithPageDimming typeLng={typeLng} isLevel={isLevel} />
             }
             {
                 isMessageQuestion &&
@@ -53,10 +69,10 @@ const UserLng = (props) => {
                     />
             }
             {
-                props.answer && 
-                    <MessageAnswerWithPageDimming title={"Delete language"}
-                        answer={props.answer} />
-                
+                isEditLevel &&
+                    <EditLanguageWithPageDimming 
+                        title={"Change level language"} 
+                        method={editLevel} />
             }
             <div className="user-lng__container">
                 <div className="user-lng__header">
@@ -69,7 +85,8 @@ const UserLng = (props) => {
                 {/* items */}
                 <UserLanguages languages={props.languages}
                     openAddLanguage={openAddLanguage}
-                    openMessageQuestion={openMessageQuestion} />
+                    openMessageQuestion={openMessageQuestion}
+                    editLevel={openEditLevel} />
             </div>
         </div>
     );

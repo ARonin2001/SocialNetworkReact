@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import withPreloader from '../HOC/withPreloader/withPreloader';
 import UserLng from './UserLng';
-import { removeUserLanguage } from './../../redux/reducers/profileReducer';
+import { removeUserLanguage, editUserLanguageLevel } from './../../redux/reducers/profileReducer';
 import { connect } from 'react-redux';
 
 const UserLngContainer = (props) => {
@@ -12,6 +12,15 @@ const UserLngContainer = (props) => {
             if(props.userId === profileId) {
                 setPreloader(true);
                 props.removeUserLanguage(typeLng, lngId, props.userId);
+                setPreloader(false);
+            }
+        }
+    }
+    const editLevel = (lngId, level) => {
+        if(lngId && level) {
+            if(props.userId === profileId) {
+                setPreloader(true);
+                props.editUserLanguageLevel(lngId, level, props.userId);
                 setPreloader(false);
             }
         }
@@ -29,14 +38,19 @@ const UserLngContainer = (props) => {
     let [answer, setAnswer] = useState(false);
     let [isPreloader, setPreloader] = useState(false);
 
-    const setAnswerInQuestion = (response) => setAnswer(response);
+    const setAnswerInQuestion = (response, typeLng, lngId) => {
+        setTypeLanguage(typeLng);
+        setLanguageId(lngId);
+        setAnswer(response);
+    } 
     const closeMessageAnswer = () => setAnswer(false);
 
     useEffect(() => {
         if(answer) {
             deleteLanguage(typeLng, lngId, profileId);
+            setAnswer(false);
         }
-    }, [answer, isPreloader]);
+    }, [answer]);
 
     const UserLngWithPreloader = withPreloader(UserLng);
 
@@ -45,13 +59,13 @@ const UserLngContainer = (props) => {
             <UserLngWithPreloader isPreloader={isPreloader}
                 languages={props.languages} 
                 getResponse={setAnswerInQuestion} 
-                answer={answer}
                 typeLng={typeLng}
                 lngId={lngId}
                 closeMessageAnswer={closeMessageAnswer}
                 setTypeLng={setTypeLanguage}
                 setLngId={setLanguageId}
-                deleteLanguage={deleteLanguage}  />
+                deleteLanguage={deleteLanguage} 
+                editLevel={editLevel} />
         </>
         
     )
@@ -59,12 +73,12 @@ const UserLngContainer = (props) => {
 
 const mapStateToProps = state => {
     return {
-        userId: state.auth.id
+        userId: state.auth.id,
     }
 }
 
 export default connect(
     mapStateToProps,
-    {removeUserLanguage}
+    {removeUserLanguage, editUserLanguageLevel}
 )
 (UserLngContainer);
