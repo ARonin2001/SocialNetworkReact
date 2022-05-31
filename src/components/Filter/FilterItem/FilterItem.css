@@ -23,7 +23,7 @@
   }
   
   .filter__btn:hover,
-  .filter__btn_active {
+  .filter__btn.active {
     background: #b37ba4;
     color: #fff;
   }
