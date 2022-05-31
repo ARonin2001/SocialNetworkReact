@@ -35,6 +35,10 @@ export const profileAPI = {
         return instance.delete(`user/languages/remove/${typeLng}/${lngId}/${userId}`)
             .then(response => response);
     },
+    editLanguageLevel(lngId, level, userId) {
+        return instance.put(`user/languages/update/${lngId}/${level}/${userId}`)
+            .then(response => response);
+    },
     updateAva(imgName, userId) {
         let formData = new FormData();
         formData.append("avatar", imgName);
@@ -44,7 +48,11 @@ export const profileAPI = {
                 'Content-Type': 'multipart/form-data'
             }
         })
-    }
+    },
+    updateAboutMe(aboutMe, userId) {
+        return instance.put(`/user/update/aboutMe/${userId}`, {...aboutMe})
+            .then(response => response);
+    },
 }
 
 export const usersAPI = {
@@ -65,5 +73,9 @@ export const usersAPI = {
         return instance.get(`user/status/${userId}`)
             .then(response => response);
     },
+    getUsers(count, page) {
+        return instance.get(`/users/${count}/${page}`)
+            .then(response => response);
+    }
 };
 
