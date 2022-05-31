@@ -9,7 +9,7 @@ const InputRow = ({inputs, change, errors}) => {
             {
                 inputs.map(input => {
                     return (
-                        <Input key={input.id} title={input.title} type={input.type} name={input.name} inputId={input.name} onChange={change} value={input.value} errors={errors} />
+                        <Input key={input.id} title={input.title} type={input.type} name={input.name} onChange={change} value={input.value} errors={errors} />
                     )
                 })
             }
