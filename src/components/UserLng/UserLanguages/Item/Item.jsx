@@ -41,7 +41,11 @@ const Item = ({title, languages, ...props}) => {
                         return <LanguageLevelBtn
                                 key={language._id} 
                                 language={language.name}
-                                level={language.level} />
+                                languageId={language._id}
+                                method={props.openMessageQuestion}
+                                typeLng={typeLng}
+                                level={language.level}
+                                editLevel={props.editLevel} />
                     })
                 }
             </div>

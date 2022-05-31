@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Item from "./Item/Item";
 
 import './UserLanguages.css';
@@ -13,7 +13,8 @@ const UserLanguages = (props) => {
                     return (
                         <Item key={item[0]} title={titleFirstSymbolUpperCase} languages={item[1]} 
                         openAddLanguage={props.openAddLanguage}
-                        openMessageQuestion={props.openMessageQuestion} />
+                        openMessageQuestion={props.openMessageQuestion}
+                        editLevel={props.editLevel} />
                     )
                 })
             }
