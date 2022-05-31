@@ -1,12 +1,5 @@
-.language {
-    background: #FF676B;
-    border-radius: 50px;
-    color: #fff;
-    padding: 4px 13px;
-    font-weight: 400;
-    font-size: 20px;
-    text-align: center;
-    user-select: none;
+  .language-level {
+    position: relative;
   }
   
 .user-lng__language {
@@ -14,6 +7,23 @@
   margin-bottom: 12px;
   position: relative;
   cursor: pointer;
+}
+.language-level_edit {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #54595E;
+  top: -6px;
+  right: -8px;
+  cursor: pointer;
+  color: #fff;
+}
+.language-level_edit-icon {
+  font-size: 10px;
 }
 
 .user-lng__language:not(:last-child) {

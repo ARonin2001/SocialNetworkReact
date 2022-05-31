@@ -1,10 +1,13 @@
+import { faMarker } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import LanguageBtn from '../LanguageBtn/LanguageBtn';
 
 import './LanguageLevelBtn.css';
 
-const LanguageLevelBtn = ({ language, level = 1, classes = "" }) => {
+const LanguageLevelBtn = ({ language, level = 1, classes = "", ...props }) => {
     let [isActiveLevel, setActiveLevel] = useState(false);
+    let [isEdit, setEdit] = useState(false);
 
     const toggleActiveLevel = () => {
         if (isActiveLevel)
@@ -29,15 +32,32 @@ const LanguageLevelBtn = ({ language, level = 1, classes = "" }) => {
         return <span className="language__level"></span>
     }).reverse();
 
+    const editLevel = (lngId) => {
+        props.editLevel(lngId);
+    }
+
     return (
-        <div className={`user-lng__language language__container ${isActiveLevel ? "active" : ""}`}
-            onClick={toggleActiveLevel}>
+        <div className={`user-lng__language language-level language__container ${isActiveLevel ? "active" : ""}`}
+            onClick={toggleActiveLevel} 
+            onMouseOver={() => setEdit(true)} 
+            onMouseOut={() => setEdit(false)}>
             
-            <LanguageBtn language={language} classes={'language__study'}/>
+            <LanguageBtn language={language} classes={'language__study'} 
+                languageId={props.languageId}
+                method={props.method}
+                typeLng={props.typeLng} />
+
             <div className="language language__levels">
+                {
+                    isEdit &&
+                        <div className='language-level_edit' onClick={() => editLevel(props.languageId)}>
+                            <FontAwesomeIcon className='language-level_edit-icon' icon={faMarker} />
+                        </div>
+                }
                 {
                     reverseLanguagesLevel
                 }
+
             </div>
         </div>
     );
