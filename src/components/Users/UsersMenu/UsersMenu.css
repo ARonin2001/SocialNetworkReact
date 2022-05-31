@@ -1,0 +1,31 @@
+.users__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+  }
+  
+  .users__header-title {
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .users__header-title:not(:last-child) {
+    margin-right: 21px;
+  }
+  
+  .users__header-title.active::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #FF676B;
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+  }

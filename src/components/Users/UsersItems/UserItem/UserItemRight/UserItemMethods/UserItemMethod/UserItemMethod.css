@@ -1,0 +1,14 @@
+.user__method {
+    position: relative;
+  }
+  .user__method,
+  .user__method a {
+    font-weight: 400;
+    color: #2A5885;
+    cursor: pointer;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+  }
+  .user_add-friend i {
+    margin-right: 5px;
+  }

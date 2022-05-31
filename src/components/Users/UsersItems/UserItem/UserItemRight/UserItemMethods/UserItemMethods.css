@@ -1,0 +1,15 @@
+.user__methods {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .user__method:not(:last-child):after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 15px;
+    background: #e0e0e0;
+    position: absolute;
+    right: -7px;
+    top: 0;
+  }

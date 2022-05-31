@@ -1,0 +1,4 @@
+.users__item .user {
+    flex-direction: column;
+    align-items: flex-start;
+}

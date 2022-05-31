@@ -1,0 +1,33 @@
+.users {
+    /* max-height: 982px; */
+    /* overflow-y: auto; */
+  }
+  .users__container {
+      overflow: hidden;
+  }
+  
+  .users__parameter {
+    position: relative;
+  }
+  
+  .users__title-parameter {
+    font-weight: 400;
+    font-size: 12px;
+    -webkit-text-decoration-line: underline;
+            text-decoration-line: underline;
+    color: #2A5885;
+    cursor: pointer;
+  }
+  
+  .users__parameters {
+    display: none;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    z-index: 20;
+  }
+  
+  .users__parameters.active {
+    display: block;
+  }
