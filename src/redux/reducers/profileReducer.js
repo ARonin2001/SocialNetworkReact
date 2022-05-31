@@ -5,6 +5,8 @@ const SET_USER_DATA = "SET-USER-DATA";
 const ADD_LANGUAGE = "ADD-LANGUAGE";
 const REMOVE_LANGUAGE = "REMOVE-LANGUAGE";
 const UPDATE_AVA = "UPDATE-AVA";
+const EDIT_LEVEL_LANGUAGE = "EDIT-LEVEL-LANGUAGE";
+const UPDATE_ABOUTME = "UPDATE-ABOUTME"; 
 
 let initialState = {
     profile: {
@@ -17,6 +19,8 @@ let initialState = {
             gender: null,
             dateBirth: null,
             status: null,
+            description: null,
+            hobby: null
         },
         img: {
             ava: null,
@@ -29,16 +33,6 @@ let initialState = {
         }
     }
 }
-
-function getLanguagesWithoutDeleteLng(languages, deletedLngId) {
-    return (
-        languages.map(lng => {
-            if(lng._id !== deletedLngId)
-                return {...lng}
-            return lng;
-        })
-    )
-};
 
 const profileReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -56,11 +50,22 @@ const profileReducer = (state = initialState, action) => {
             }
         case REMOVE_LANGUAGE:
             return {...state, profile: {...state.profile, languages: {
-                ...state.profile.languages, [action.typeLng]: [...state.profile.languages[action.typeLng], 
-                    getLanguagesWithoutDeleteLng(state.profile.languages[action.typeLng], action.lngId)]
+                ...state.profile.languages, 
+                    [action.typeLng]: state.profile.languages[action.typeLng].filter(lng => lng._id !== action.lngId)
+            }}}
+        case EDIT_LEVEL_LANGUAGE:
+            return {...state, profile: {...state.profile, languages: {
+                ...state.profile.languages, ["learning"]: 
+                state.profile.languages["learning"].map(lng => {
+                    if(lng._id === action.lngId)
+                        return {...lng, level: action.level};
+                    return {...lng};
+                } )
             }}}
         case UPDATE_AVA:
             return {...state, profile: {...state.profile, img: {...state.profile.img, ava: action.ava} }}
+        case UPDATE_ABOUTME:
+            return {...state, profile: {...state.profile, aboutMe: {...action.aboutMe}}}
         default:
             return state;
     };
@@ -72,6 +77,8 @@ export const setUser = (data) => ({type: SET_USER_DATA, data});
 export const addLanguage = (typeLng, languages) => ({type: ADD_LANGUAGE, typeLng, languages});
 export const updateAva = (ava) => ({type: UPDATE_AVA, ava});
 export const removeLanguage = (typeLng, lngId) => ({type: REMOVE_LANGUAGE, typeLng, lngId});
+export const editLanguageLevel = (lngId, level) => ({type: EDIT_LEVEL_LANGUAGE, lngId, level});
+export const updateAboutMe = (aboutMe) => ({type: UPDATE_ABOUTME, aboutMe});
 
 // thukns
 export const updateUserStatus = (userId, status) => {
@@ -108,9 +115,19 @@ export const addNewLanguage = (typeLng, lng, userId, level = null) => {
 export const removeUserLanguage = (typeLng, lngId, userId) => {
     return async (dispatch) => {
         let response = await profileAPI.removeLanguage(typeLng, lngId, userId);
-        console.log(response);
+        
         if(response.status === 200) {
-            dispatch(removeLanguage(typeLng, userId));
+            dispatch(removeLanguage(typeLng, lngId));
+        }
+    }
+}
+
+export const editUserLanguageLevel = (lngId, level, userId) => {
+    return async (dispatch) => {
+        let response = await profileAPI.editLanguageLevel(lngId, level, userId);
+
+        if(response.status === 200) {
+            dispatch(editLanguageLevel(lngId, level));
         }
     }
 }
@@ -120,6 +137,15 @@ export const updateProfileAva = (imgName, userId) => {
     return async (dispatch) => {
         let response = await profileAPI.updateAva(imgName, userId);
         dispatch(updateAva(response.data.imgPath));
+    }
+}
+
+// update about me
+export const updateUserAboutMe = (aboutMe, userId) => {
+    return async (dispatch) => {
+        let response = await profileAPI.updateAboutMe(aboutMe, userId);
+        if(response.status === 200)
+            dispatch(updateAboutMe(aboutMe));
     }
 }
 
