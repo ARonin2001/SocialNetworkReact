@@ -33,8 +33,6 @@ const InputStatusContainer = ({userId, ...props}) => {
         }),
         onSubmit: values => {
             updateStatus(values);
-            // if(params.id === userId)
-            //     props.updateUserStatus(userId, values.status);
         }
     });
 
@@ -46,7 +44,7 @@ const InputStatusContainer = ({userId, ...props}) => {
 
 const mapStateToProps = state => {
     return {
-        userId: state.profilePage.profile._id
+        userId: state.auth.id
     }
 }
 

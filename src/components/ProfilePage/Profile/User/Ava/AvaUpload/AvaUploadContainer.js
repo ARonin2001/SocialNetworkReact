@@ -47,21 +47,12 @@ const AvaUploadContainer = (props) => {
         <div className='update__ava'>
             <Preloader formik={formik} isPreloader={isPreloader} />
         </div>
-
-        // <div className='update__ava'>
-        //     <div className='preloader__container'>
-        //         <div className={`preloader ${isPreloader ? 'active': ''}`}>
-                    
-        //         </div>
-        //         <AvaUpload formik={formik} />
-        //     </div>
-        // </div>
     );
 };
 
 const mapStateToPros = state => {
     return {
-        userId: state.profilePage.profile._id
+        userId: state.auth._id
     }
 }
 
