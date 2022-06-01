@@ -76,6 +76,10 @@ export const usersAPI = {
     getUsers(count, page) {
         return instance.get(`/users/${count}/${page}`)
             .then(response => response);
+    },
+    getUsersByNameOrLastname(name) {
+        return instance.get(`/users/${name}`)
+            .then(response => response);
     }
 };
 
