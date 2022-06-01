@@ -12,11 +12,16 @@ const menuToggle = (e) => {
 
     let target = e.target;
 
-    target.classList.toggle('menu__li-container_active');
+    if(!target.classList.contains('active'))
+        target.classList.add('active');
+    else
+        target.classList.remove('active');
+
     accordionBlock(menuSubUl)
 }
 
 const Menu = ({subLi, isAuth}) => {
+
     return (
         <div className="menu aside-user-menu block">
             <div className="menu__container">
