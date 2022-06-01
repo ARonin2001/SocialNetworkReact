@@ -7,39 +7,45 @@ import './AppCss/App.css';
 import './AppCss/container.css';
 
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import AsideUser from './components/AsideUser/AsideUser';
 import AsideRight from './components/AsideRight/AsideRitght';
 import News from './components/News/News';
 // import AuthRegister from './components/Auth/AuthRegister/AuthRegister';
 // import AuthLogin from './components/Auth/AuthLogin/AuthLogin';
-import ProfileContainer from './components/ProfilePage/Profile/ProfileContainer';
-import ProfileContentContainer from './components/ProfilePage/ProfileContent/ProfileContentContainer';
+// import ProfileContainer from './components/ProfilePage/Profile/ProfileContainer';
+// import ProfileContentContainer from './components/ProfilePage/ProfileContent/ProfileContentContainer';
 import Users from './components/Users/Users';
+import AsideUserContainer from './components/AsideUser/AsideUserContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 const AuthRegister = React.lazy(() => import('./components/Auth/AuthRegister/AuthRegister'));
 const AuthLogin = React.lazy(() => import('./components/Auth/AuthLogin/AuthLogin'));
+const ProfileContainer = React.lazy(() => import('./components/ProfilePage/Profile/ProfileContainer'));
+const ProfileContentContainer = React.lazy(() => import('./components/ProfilePage/ProfileContent/ProfileContentContainer'));
 
 function App() {
   return (
     <div className="App">
       <div className='wraper'>
-        <Header />
+        <HeaderContainer />
         <div className='main'>
-          <Routes>
-            <Route path="/profile/:id" element={<ProfileContainer/>} />
-          </Routes>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/profile/:id" element={<ProfileContainer/>} />
+            </Routes>
+          </Suspense>
+
+          
           <div className="main-content __container">
-            <AsideUser />
+            <AsideUserContainer />
             <div className='content'>
               <div className='content__container'>
                 <Routes>
                   <Route path="/news" element={<News/>} />
-                  <Route path="/profile/:id" element={<ProfileContentContainer />} />
                 </Routes>
                 <Suspense fallback={<div>Loading...</div>}>
                   <Routes>
+                    <Route path="/profile/:id" element={<ProfileContentContainer />} />
                     <Route path="/auth/login" element={<AuthLogin />} />
                     <Route path="/auth/register" element={<AuthRegister/>} />
                     <Route path="/users" element={<Users />} />
