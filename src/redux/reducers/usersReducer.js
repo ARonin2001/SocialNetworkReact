@@ -1,6 +1,6 @@
 import { usersAPI } from "../../Api/Api";
 
-const SET_USERS = "SET-USER-DATA";
+const SET_USERS = "SET-USERS";
 
 let initialState = {
     users: [
@@ -43,6 +43,26 @@ export const setListUsers = (count, page) => {
         if(response.status === 200) {
             dispatch(setUsers(response.data));
         } 
+    }
+}
+
+export const setUsersByNameOrLastName = (name) => {
+    return async (dispatch) => {
+        let response = await usersAPI.getUsersByNameOrLastname(name);
+
+        if(response.status === 200) {
+            dispatch(setUsers(response.data));
+        }
+    }
+}
+
+export const setMyFriends = (userId) => {
+    return async (dispatch) => {
+        let response = await usersAPI.getMyFriends(userId);
+
+        if(response.status === 200) {
+            dispatch(setUsers(response.data));
+        }
     }
 }
 
