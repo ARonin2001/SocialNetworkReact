@@ -80,6 +80,10 @@ export const usersAPI = {
     getUsersByNameOrLastname(name) {
         return instance.get(`/users/${name}`)
             .then(response => response);
+    },
+    getMyFriends(userId) {
+        return instance.get(`/friends/${userId}`)
+            .then(response => response);
     }
 };
 
