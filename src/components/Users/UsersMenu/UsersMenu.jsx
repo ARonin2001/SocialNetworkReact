@@ -1,17 +1,14 @@
 import React from 'react';
 
+import UserMenuItem from './UserMenuItem/UserMenuItem';
+
 import './UsersMenu.css';
 
-const UsersMenu = (props) => {
+const UsersMenu = ({setAllUsers, getMyFriends}) => {
     return (
         <div className="users__header">
-            <div className="users__header-title active">
-                My friends
-                <span className="users__count">65</span>
-            </div>
-            <div className="users__header-title">
-                All users
-            </div>
+            <UserMenuItem method={getMyFriends} title={"My friends"} count={65} />
+            <UserMenuItem method={setAllUsers} title={"All users"} />
         </div>
     );
 };
