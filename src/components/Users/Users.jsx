@@ -2,7 +2,7 @@ import React from 'react'
 
 import UsersItemContainer from './UsersItems/UsersItemContainer';
 import UsersMenu from './UsersMenu/UsersMenu';
-import UsersSearch from './UsersSearch/UsersSearch';
+import UsersSearchContainer from './UsersSearch/UsersSearchContainer';
 
 import './Users.css';
 
@@ -13,7 +13,7 @@ const Users = (props) => {
             <div className="users__container p-13">
                 <UsersMenu />
                 <div className="line"></div>
-                <UsersSearch />
+                <UsersSearchContainer />
                 <div className="line"></div>
                 <UsersItemContainer />
                 
