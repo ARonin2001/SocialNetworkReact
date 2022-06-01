@@ -6,7 +6,7 @@ import './UserItemLeft.css';
 
 import { NavLink } from "react-router-dom";
 
-const UserItemLeft = ({ava}) => {
+const UserItemLeft = ({ava, id}) => {
     const host = window.origin;
 
     // host 3000 (server host)
@@ -20,7 +20,7 @@ const UserItemLeft = ({ava}) => {
 
     return (
         <div className="user__item_left">
-            <NavLink to="#" className="user__ava">
+            <NavLink to={`/profile/${id}`} className="user__ava">
                 <img src={avaImg} alt="user" className="users__ava-img" />
             </NavLink>
         </div>
