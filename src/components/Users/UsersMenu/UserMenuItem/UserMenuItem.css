@@ -1,0 +1,19 @@
+.users__header-title {
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+  }
+  .users__header-title.active::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #FF676B;
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+  }
+  .users__count {
+    margin-left: 7px;
+    user-select: none;
+  }
