@@ -1,7 +1,7 @@
 import { usersAPI, profileAPI } from "../../Api/Api";
 
 const SET_STATUS = "SET-STATUS";
-const SET_USER_DATA = "SET-USER-DATA";
+const SET_USER_PROFILE_DATA = "SET-USER-PROFILE-DATA";
 const ADD_LANGUAGE = "ADD-LANGUAGE";
 const REMOVE_LANGUAGE = "REMOVE-LANGUAGE";
 const UPDATE_AVA = "UPDATE-AVA";
@@ -40,7 +40,7 @@ const profileReducer = (state = initialState, action) => {
             return {...state, profile: {...state.profile, 
                 aboutMe: {...state.profile.aboutMe, status: action.status} 
             }};
-        case SET_USER_DATA:
+        case SET_USER_PROFILE_DATA:
             return {...state, profile: {...state.profile, ...action.data}}
         case ADD_LANGUAGE:
             return {...state, profile: {...state.profile, languages: 
@@ -73,7 +73,7 @@ const profileReducer = (state = initialState, action) => {
 
 // actions
 export const setStatus = (status) => ({type: SET_STATUS, status});
-export const setUser = (data) => ({type: SET_USER_DATA, data});
+export const setUser = (data) => ({type: SET_USER_PROFILE_DATA, data});
 export const addLanguage = (typeLng, languages) => ({type: ADD_LANGUAGE, typeLng, languages});
 export const updateAva = (ava) => ({type: UPDATE_AVA, ava});
 export const removeLanguage = (typeLng, lngId) => ({type: REMOVE_LANGUAGE, typeLng, lngId});
