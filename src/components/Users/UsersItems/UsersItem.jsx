@@ -8,7 +8,9 @@ const UsersItems = ({users}) => {
         <div className="users__items">
             {
                 users.map((u, key) => {
-                    return <UserItem key={key} name={u.aboutMe.name}
+                    return <UserItem key={key} 
+                        id={u._id}
+                        name={u.aboutMe.name}
                         lastName={u.aboutMe.lastName}
                         languages={u.languages}
                         ava={u.img.ava} />
