@@ -14,12 +14,14 @@ const UserBlock = (props) => {
 
                 <div className="user-mini__bottom">
                     {/* user avatar (img and name) */}
-                    <Ava name="Mister Bin"/>
+                    <Ava userId={props.userId} 
+                        name={props.name} lastName={props.lastName} 
+                        ava={props.img.ava} />
                     
                     <div className="line"></div>
 
                     {/* user status */}
-                    <Status status={"It’s my very beautifule status. Eee man. I’m a React developer. I’m a best of the best React developer yes."}/>
+                    <Status status={props.status}/>
                 </div>
             </div>
         </div>
