@@ -4,8 +4,8 @@
     display: flex;
     justify-items: center;
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 33.333%;
-            flex: 0 0 33.333%;
+        -ms-flex: 1 0 33.333%;
+            flex: 1 0 33.333%;
   }
   
   .filter__item:not(:last-child) {
