@@ -1,13 +1,30 @@
-import React from "react";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
 
 import './UsersSearch.css';
 
-const UsersSearch = (props) => {
+const UsersSearch = ({setUsers, setAllUsers}) => {
+    let [name, setName] = useState("");
+
+    const setUserNameOrLastName = (e) => {
+        setName(e.target.value);
+    }
+
+    useEffect(() => {
+        if(!name)
+            setAllUsers();
+        else
+            setUsers(name);
+    }, [name]);
+
     return (
         <div className="users__search">
             <div className="users__input-container">
-                <i className="fa fa-search"></i>
-                <input type="text" className="users__searching" id="users__searching" placeholder="User name..." />
+                <FontAwesomeIcon icon={faSearch} className={"users__search-icon"} />
+                <input type="text" className="users__searching" id="users__searching" placeholder="User name..."  
+                    value={name}
+                    onChange={setUserNameOrLastName}  />
             </div>
         </div>
     );
