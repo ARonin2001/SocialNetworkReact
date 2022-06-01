@@ -3,24 +3,33 @@ import { headerAPI, usersAPI } from "../../Api/Api";
 const SET_USER_DATA = "SET-USER-DATA";
 
 let initialState = {
-    id: null,
+    _id: null,
     email: null,
     password: null,
-    isAuth: false
+    friends: [],
+    aboutMe: {
+        name: null,
+        lastname: null,
+        status: null,
+    },
+    img: {
+        backImg: null,
+        ava: null,
+    },
+    isAuth: false,
+    
 };
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_DATA:
-            return {...state, ...action.data }
+            return {...state, ...action.userData, isAuth: action.isAuth }
         default:
             return state;
     }
 }
 
-export const setAuthUserData = (id, email, password, isAuth = false) => ({type: SET_USER_DATA, data: {
-    id, email, password, isAuth
-}});
+export const setAuthUserData = (userData, isAuth = false) => ({type: SET_USER_DATA, userData, isAuth});
 
 export const getAuthUserData = () => {
     return async (dispatch) => {
@@ -35,11 +44,10 @@ export const getAuthUserData = () => {
 
 export const getLoginUser = (email, password) => {    
     return async (dispatch) => {
-        let data = await usersAPI.getLoginUser(email, password);
+        let response = await usersAPI.getLoginUser(email, password);
 
-        if(data.status === 200) {
-            let {_id, email, password} = data.data.user;
-            dispatch(setAuthUserData(_id, email, password, true));
+        if(response.status === 200) {
+            dispatch(setAuthUserData(response.data.user, true));
         } else {
             // let messageError = data.messages.length > 0 ? data.messages[0] : "Some error";
         }
@@ -49,6 +57,7 @@ export const getLoginUser = (email, password) => {
 export const createNewUser = (userData) => {
     return async (dispatch) => {
         let response = await usersAPI.createNewUser(userData);
+        
         if(response.status === 201) {
             dispatch(getLoginUser(userData.email, userData.password));
         } else {
