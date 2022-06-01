@@ -6,7 +6,10 @@
   
   .header__user-ul_left img {
     width: 45px;
+    height: 45px;
+    object-fit: cover;
     margin-right: 8px;
+    border-radius: 50%;
   }
   
   .header__user-ul_left {

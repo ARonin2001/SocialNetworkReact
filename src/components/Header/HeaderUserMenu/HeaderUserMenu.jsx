@@ -11,6 +11,7 @@ import { faPersonThroughWindow } from "@fortawesome/free-solid-svg-icons";
 
 
 // menu
+// так делать нельзя
 const toggleHeaderSubUl = (e) => {
     let tartget = e.target;
 
@@ -23,6 +24,8 @@ const toggleHeaderSubUl = (e) => {
 };
 
 const HeaderUserMenu = (props) => {
+    let avaImg = props.ava ? "http://localhost:3000" + props.ava : avaDefault;
+
     return (
         <div className="header__user-menu">
             <div className="header__user-container">
@@ -30,8 +33,8 @@ const HeaderUserMenu = (props) => {
                     <li className="header__ul-link" onClick={toggleHeaderSubUl}>
                         <div className="header__user-ul-container">
                             <div className="header__user-ul_left">
-                                <img src={avaDefault} alt="ava user" className="header__user-ul-img" />
-                                <div className="header__user-ul-name">MisTer Bin</div>
+                                <img src={avaImg} alt="ava user" className="header__user-ul-img" />
+                                <div className="header__user-ul-name">{props.fullName}</div>
                             </div>
                             <div className="header__user-ul_right">
                                 <FontAwesomeIcon icon={faChevronUp} className="header__user-ul-arrow_icon" />
@@ -39,8 +42,13 @@ const HeaderUserMenu = (props) => {
                         </div>
 
                         <ul className="header__user-sub-ul header__sub-ul">
-                            <UserSubLi text={"Login"} icon={faPersonThroughWindow} link={"/auth/login"} />
-                            <UserSubLi text={"Register"} icon={faPersonThroughWindow} link={"/auth/register"} />
+                            {
+                                !props.isAuth &&
+                                    <>
+                                        <UserSubLi text={"Login"} icon={faPersonThroughWindow} link={"/auth/login"} />
+                                        <UserSubLi text={"Register"} icon={faPersonThroughWindow} link={"/auth/register"} />
+                                    </>
+                            }
                         </ul>
                     </li>
                 </ul>

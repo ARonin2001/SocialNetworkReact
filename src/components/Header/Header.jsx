@@ -15,7 +15,7 @@ const Header = (props) => {
                 {/* Search */}
                 <HeaderSearch />
                 {/* Header user menu */}
-                <HeaderUserMenu />
+                <HeaderUserMenu isAuth={props.isAuth} fullName={props.fullName} ava={props.ava} />
             </div>
         </header>
     );
