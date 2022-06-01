@@ -67,7 +67,7 @@ const AboutMeEditContainer = (props) => {
 
 const mapStateToProps = state => {
     return {
-        userId: state.auth.id,
+        userId: state.auth._id,
     }
 }
 

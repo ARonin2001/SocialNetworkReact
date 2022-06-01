@@ -20,7 +20,7 @@ const ProfileContent = (props) => {
     return (
         <div className="profile__content">
             <PostWriter />
-            <Filter values={["about me", "languages", "settings"]} icons={[faCircleUser, faGlobe, faGears]} method={setActiveFilterItem} />
+            <Filter values={["about me", "languages"]} icons={[faCircleUser, faGlobe]} method={setActiveFilterItem} />
             {
                 [
                     <AboutMe aboutMe={props.profile.aboutMe} />,
