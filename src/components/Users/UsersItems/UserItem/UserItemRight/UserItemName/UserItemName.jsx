@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 
 import './UserItemName.css';
 
-const UserItemName = ({name, lastName}) => {
+const UserItemName = ({id, name, lastName}) => {
     return (
-        <NavLink to="#" className="user-item__name title">
+        <NavLink to={`/profile/${id}`} className="user-item__name title">
             {`${name} ${lastName}`}
         </NavLink>
     );
