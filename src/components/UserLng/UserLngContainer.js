@@ -9,6 +9,7 @@ const UserLngContainer = (props) => {
     // delete language
     const deleteLanguage = (typeLng, lngId, profileId) => {
         if(lngId) {
+            debugger;
             if(props.userId === profileId) {
                 setPreloader(true);
                 props.removeUserLanguage(typeLng, lngId, props.userId);
@@ -73,7 +74,7 @@ const UserLngContainer = (props) => {
 
 const mapStateToProps = state => {
     return {
-        userId: state.auth.id,
+        userId: state.auth._id,
     }
 }
 

@@ -57,7 +57,7 @@ const AddingLanguageContainer = (props) => {
 const mapStateToProps = state => {
     return {
         languages: state.lngReducer.languages,
-        userId: state.profilePage.profile._id,
+        userId: state.auth._id,
     }
 }
 
