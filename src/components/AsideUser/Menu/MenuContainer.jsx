@@ -19,7 +19,7 @@ const MenuContainer = (props) => {
 let mapStateToProps = state => {
     return {
         isAuth: state.auth.isAuth,
-        userId: state.auth.id,
+        userId: state.auth._id,
     }
 };
 
