@@ -8,7 +8,6 @@ import './AppCss/container.css';
 
 import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
-import AsideRight from './components/AsideRight/AsideRitght';
 import News from './components/News/News';
 // import AuthRegister from './components/Auth/AuthRegister/AuthRegister';
 // import AuthLogin from './components/Auth/AuthLogin/AuthLogin';
@@ -17,6 +16,7 @@ import News from './components/News/News';
 import Users from './components/Users/Users';
 import AsideUserContainer from './components/AsideUser/AsideUserContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import AsideRitghtContainer from './components/AsideRight/AsideRitghtContainer';
 
 const AuthRegister = React.lazy(() => import('./components/Auth/AuthRegister/AuthRegister'));
 const AuthLogin = React.lazy(() => import('./components/Auth/AuthLogin/AuthLogin'));
@@ -53,7 +53,7 @@ function App() {
                 </Suspense>
               </div>
             </div>
-            <AsideRight />
+            {/* <AsideRitghtContainer /> */}
           </div>
 
           {/* btn up */}
