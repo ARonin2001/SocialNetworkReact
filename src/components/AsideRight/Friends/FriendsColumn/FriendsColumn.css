@@ -1,10 +1,7 @@
 .friends__column {
     height: 62px;
     max-width: 44px;
-  }
-  
-  .friends__column:not(:last-child) {
-    margin-right: 17px;
+    margin-bottom: 10px;
   }
   
   .friends__link {
@@ -46,8 +43,10 @@
   
   .friends__ava img {
     position: relative;
-    max-width: 36px;
-    width: 100%;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
     border: 2px solid #fff;
     border-radius: 50%;
     -webkit-box-sizing: content-box;
