@@ -84,6 +84,14 @@ export const usersAPI = {
     getMyFriends(userId) {
         return instance.get(`/friends/${userId}`)
             .then(response => response);
+    },
+    addFriend(friendId, userId) {
+        return instance.put(`/friends/add/${friendId}/${userId}`)
+            .then(response => response);
+    },
+    removeFriend(friendId, userId) {
+        return instance.delete(`/friends/remove/${friendId}/${userId}`)
+            .then(response => response);
     }
 };
 
