@@ -13,3 +13,6 @@
     right: -7px;
     top: 0;
   }
+  .user__method_delete .user__method {
+    color: #ff676b;
+  }

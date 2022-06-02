@@ -10,7 +10,13 @@ const UserItemRight = (props) => {
         <div className="user__item_right">
             <UserItemName id={props.id} name={props.name} lastName={props.lastName} />
             <UserItemLanguages languages={props.languages} />
-            <UserItemMethods />
+            {
+                props.isAuth &&
+                    <UserItemMethods addFriend={props.addFriend} deleteFriend={props.deleteFriend} 
+                        userId={props.id} 
+                        friends={props.friends} />
+            }
+            
         </div>
     );
 };

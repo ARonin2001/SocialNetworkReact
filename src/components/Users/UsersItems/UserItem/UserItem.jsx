@@ -14,9 +14,13 @@ const UserItem = (props) => {
                     id={props.id} />
                 <UserItemRight 
                     id={props.id}
+                    isAuth={props.isAuth}
                     name={props.name}
                     lastName={props.lastName}
-                    languages={props.languages} />
+                    languages={props.languages} 
+                    addFriend={props.addFriend}
+                    deleteFriend={props.deleteFriend}
+                    friends={props.friends} />
             </div>
             <div className="line"></div>
 
