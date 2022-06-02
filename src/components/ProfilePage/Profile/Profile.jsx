@@ -10,13 +10,13 @@ import './Profile.css';
 import ProfileBackground from './ProfileBackground/ProfileBackground';
 import ProfileTop from './ProfileTop/ProfileTop';
 import ProfileBottom from './ProfileBottom/ProfileBottom';
-import UserLng from '../../UserLng/UserLng';
 import UserLngContainer from '../../UserLng/UserLngContainer';
-import AddingLanguageContainer from '../../UserLng/AddingLanguage/AddingLanguageContainer';
+// import AddingLanguageContainer from '../../UserLng/AddingLanguage/AddingLanguageContainer';
 import withPageDimming from '../../HOC/withPageDimming/withPageDimming';
 import AvaUploadContainer from './User/Ava/AvaUpload/AvaUploadContainer';
+const AddingLanguageContainer = React.lazy(() => import('../../UserLng/AddingLanguage/AddingLanguageContainer'));
 
-const Profile = ({profile}) => {
+const Profile = ({profile, ...props}) => {
 
     let [isLanguagesBlock, setLanguagesBlock] = useState(false);
     let [isStatusEdit, setStatusEdit] = useState(false);
@@ -67,6 +67,10 @@ const Profile = ({profile}) => {
                     lastName={profile.aboutMe.lastName}
                     avaImg={profile.img.ava}
                     status={profile.aboutMe.status}
+                    friends={props.friends}
+                    userId={props.userId}
+                    addFriend={props.addFriend}
+                    deleteFriend={props.deleteFriend}
                     />
 
                 {/* user languages */}
