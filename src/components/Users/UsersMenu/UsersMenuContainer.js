@@ -7,23 +7,24 @@ const UsersMenuContainer = (props) => {
     const setAllUsers = async () => {
         await props.setListUsers(20, 1);
     }
-
     const getMyFriends = () => {
         if(props.userId) {
-            props.setMyFriends(userId);
+            props.setMyFriends(props.userId);
         }
-
     };
 
     return (
         <UsersMenu setAllUsers={setAllUsers} getMyFriends={getMyFriends} 
-             />
+            friendsCount={props.friendsCount}
+            isAuth={props.isAuth} />
     );
 };
 
 const mapStateToProps = state => {
     return {
-        userId: state.auth.id,
+        isAuth: state.auth.isAuth,
+        userId: state.auth._id,
+        friendsCount: state.auth.friends.length,
     }
 }
 
