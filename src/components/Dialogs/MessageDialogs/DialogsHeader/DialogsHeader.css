@@ -1,0 +1,21 @@
+.dialogs__search {
+    position: relative;
+  }
+  
+  .dialogs__search .dialogs__search-icon {
+    position: absolute;
+    top: 50%;
+    left: 13px;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    color: #6b6c6e;
+  }
+  
+  .dialogs__search-input {
+    padding: 13px 13px 13px 39px;
+    background-color: #e0e0e0;
+    color: #767676;
+    width: 100%;
+    box-sizing: border-box;
+  }

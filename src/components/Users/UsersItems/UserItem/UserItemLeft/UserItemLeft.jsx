@@ -9,15 +9,7 @@ import { NavLink } from "react-router-dom";
 const UserItemLeft = ({ava, id}) => {
     const host = window.origin;
 
-    // host 3000 (server host)
-    // Это временное решение
-    let hostServer = host;
-    hostServer = hostServer.substr(0, hostServer.length-4);
-    hostServer += "3000";
-
-    const avaImg = ava ? hostServer + ava : avaDefault;
-
-
+    const avaImg = ava ? host + ava : avaDefault;
     return (
         <div className="user__item_left">
             <NavLink to={`/profile/${id}`} className="user__ava">

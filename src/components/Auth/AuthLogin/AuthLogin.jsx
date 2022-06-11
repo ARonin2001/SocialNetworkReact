@@ -17,9 +17,14 @@ const AuthLogin = (props) => {
 
     const authLogin = async (login, password) => {
         if (login && password) {
-            setPreloader(true);
-            await props.getLoginUser(login, password);
-            setPreloader(false);
+            try {
+                setPreloader(true);
+                await props.getLoginUser(login, password);
+                setPreloader(false);
+            } catch {
+                setPreloader(false);
+            }
+            
         }
     }
 

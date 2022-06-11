@@ -1,0 +1,8 @@
+.s-message {
+    background: #F1F2F4;
+    border: 1px solid #E0E0E0;
+  }
+  
+  .s-message__container {
+    padding: 13px 5px 13px 5px;
+  }

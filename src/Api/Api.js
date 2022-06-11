@@ -95,3 +95,20 @@ export const usersAPI = {
     }
 };
 
+export const messagesAPI = {
+    getUsersByMessages(userId) {
+        return instance.get(`messages/get/companions/${userId}`)
+            .then(response => response);
+    },
+    addMessage(userId, companionId, message) {
+        return instance.put(`messages/${userId}`, {
+            companionId,
+            message,
+        });
+    },
+    getChat(companionId, userId) {
+        return instance.get(`messages/get/chat/${companionId}/${userId}`)
+            .then(response => response);
+    }
+}
+

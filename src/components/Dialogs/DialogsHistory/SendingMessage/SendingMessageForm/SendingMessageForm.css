@@ -1,0 +1,63 @@
+.s-message__form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .s-message__form-label {
+    cursor: pointer;
+  }
+  
+  .s-message__form-label:active {
+    -webkit-transform: scale(0.9, 0.9);
+        -ms-transform: scale(0.9, 0.9);
+            transform: scale(0.9, 0.9);
+  }
+
+  .s-message__input {
+    display: none;
+  }
+  .s-message__form-label {
+      font-size: 22px;
+  }
+
+  .s-message__writer,
+  .s-message__textarea-placeholder {
+    background: #FFFFFF;
+    border: 1px solid #757575;
+    border-radius: 10px;
+    max-width: 420px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    padding: 10px 13px 10px 13px;
+    color: #767676;
+  }
+
+  .s-message__writer-input,
+  .s-message__textarea-placeholder-input {
+    width: 100%;
+  }
+  
+  .s-message__writer {
+    max-height: 176px;
+    overflow-y: auto;
+    line-height: 16px;
+    resize: none;
+  }
+  
+  .s-message_send-message .s-message__btn-icon {
+    font-size: 22px;
+  }
+  
+  .s-message_send-message:active {
+    -webkit-transform: scale(0.9, 0.9);
+        -ms-transform: scale(0.9, 0.9);
+            transform: scale(0.9, 0.9);
+  }

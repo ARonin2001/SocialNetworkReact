@@ -1,12 +1,11 @@
-import React, { Suspense } from 'react';
-
+import React, { Suspense, useState } from 'react';
 // styles
 import './AppCss/reset.css';
 import './AppCss/font.css';
 import './AppCss/App.css';
 import './AppCss/container.css';
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useParams } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import News from './components/News/News';
 // import AuthRegister from './components/Auth/AuthRegister/AuthRegister';
@@ -22,8 +21,14 @@ const AuthRegister = React.lazy(() => import('./components/Auth/AuthRegister/Aut
 const AuthLogin = React.lazy(() => import('./components/Auth/AuthLogin/AuthLogin'));
 const ProfileContainer = React.lazy(() => import('./components/ProfilePage/Profile/ProfileContainer'));
 const ProfileContentContainer = React.lazy(() => import('./components/ProfilePage/ProfileContent/ProfileContentContainer'));
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 
 function App() {
+  let [isDialogs, setDialogs] = useState(false);
+
+  const showDialogs = () => setDialogs(true);
+  const hideDialogs = () => setDialogs(false);
+
   return (
     <div className="App">
       <div className='wraper'>
@@ -34,9 +39,8 @@ function App() {
               <Route path="/profile/:id" element={<ProfileContainer/>} />
             </Routes>
           </Suspense>
-
           
-          <div className="main-content __container">
+          <div className={`main-content __container ${isDialogs ? 'main-content__messages' : ''}`}>
             <AsideUserContainer />
             <div className='content'>
               <div className='content__container'>
@@ -49,6 +53,8 @@ function App() {
                     <Route path="/auth/login" element={<AuthLogin />} />
                     <Route path="/auth/register" element={<AuthRegister/>} />
                     <Route path="/users" element={<Users />} />
+                    <Route path="/dialogs" element={<DialogsContainer showDialogs={showDialogs} 
+                      hideDialogs={hideDialogs} />} />
                   </Routes>
                 </Suspense>
               </div>

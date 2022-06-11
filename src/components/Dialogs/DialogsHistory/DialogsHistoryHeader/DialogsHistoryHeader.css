@@ -1,0 +1,28 @@
+.d-history__header {
+    padding: 5px 13px 4px 13px;
+    border-bottom: 1px solid #E0E0E0;
+  }
+  .d-history__ava {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .d-history__ava-name {
+    color: #000000;
+  }
+  
+  .d-history__ava-img {
+    margin-right: 7px;
+    
+  }
+  
+  .d-history__ava-img img {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    object-fit: cover;
+  }

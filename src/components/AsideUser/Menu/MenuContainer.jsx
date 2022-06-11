@@ -7,7 +7,7 @@ const MenuContainer = (props) => {
     let subLiMenuData = [
         {title: "Home", link: `/profile/${props.userId}`, icon: faHome},
         {title: "Friends", link: "/users", icon: faUserGroup},
-        {title: "Messages", link: "#", icon: faMessage},
+        {title: "Messages", link: "/dialogs", icon: faMessage},
         {title: "News", link: "/news", icon: faNewspaper},
     ];
 

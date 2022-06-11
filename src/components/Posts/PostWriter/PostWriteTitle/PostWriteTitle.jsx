@@ -14,7 +14,7 @@ const PostWriteTitle = (props) => {
         <>
             {!isTitleChange ? 
                 <h3 className="post-write__title title" onClick={toggleIsTitleChange}>Your Title</h3>
-                :  <h3 className="post-write__title-input title" autofocus tabIndex={0} contentEditable="true" 
+                :  <h3 className="post-write__title-input title" autofocus tabIndex={0} 
                     onBlur={toggleIsTitleChange}></h3>
             }
 

@@ -16,8 +16,9 @@ const UserItemMethods = (props) => {
             }
             {
                 !friendsId.includes(props.userId) &&
-                    <UserItemMethod title={"add to friend"} method={props.addFriend} userId={props.userId} />
+                    <UserItemMethod title={"add to friend "} method={props.addFriend} userId={props.userId} />
             }
+
         </div>
     );
 };

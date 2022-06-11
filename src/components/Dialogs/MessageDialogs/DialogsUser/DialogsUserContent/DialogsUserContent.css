@@ -1,0 +1,20 @@
+.d-user__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  .d-user__name {
+    margin-bottom: 6px;
+    white-space: nowrap;
+  }
+  
+  .d-user__time-last-message {
+    color: #B2B4BC;
+    font-weight: 700;
+    font-size: 13px;
+  }

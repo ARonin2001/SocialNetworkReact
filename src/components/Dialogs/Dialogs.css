@@ -1,0 +1,27 @@
+.messages {
+    height: 710px;
+    max-width: 843px;
+    width: 100%;
+  }
+  
+  .messages__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+  }
+  
+  .messages *::-webkit-scrollbar {
+    height: 2px;
+    width: 6px;
+  }
+  
+  .messages *::-webkit-scrollbar-thumb {
+    background-color: #767676;
+    border-radius: 5px;
+  }
+  
+  .messages * {
+    scrollbar-width: thin;
+    scrollbar-color: #767676;
+  }

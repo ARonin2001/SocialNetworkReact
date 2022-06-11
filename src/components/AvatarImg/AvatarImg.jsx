@@ -6,13 +6,7 @@ import './AvatarImg.css';
 const AvatarImg = ({ avaIMG }) => {
     const host = window.origin;
 
-    // host 3000 (server host)
-    // Это временное решение
-    let hostServer = host;
-    hostServer = hostServer.substr(0, hostServer.length-4);
-    hostServer += "3000";
-
-    const avaImg = avaIMG ? hostServer + avaIMG : avaDefault;
+    const avaImg = avaIMG ? host + avaIMG : avaDefault;
 
     return (
         <div className="avatar">

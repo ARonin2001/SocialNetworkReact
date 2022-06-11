@@ -4,6 +4,7 @@ import authReducer from './reducers/authReducer';
 import profileReducer from './reducers/profileReducer';
 import languagesReducer from './reducers/languagesReducer';
 import usersReducer from "./reducers/usersReducer";
+import messagesReducer from './reducers/messagesReducer';
 
 
 let reducers = combineReducers({
@@ -11,6 +12,7 @@ let reducers = combineReducers({
     profilePage: profileReducer,
     lngReducer: languagesReducer,
     usersPage: usersReducer,
+    messagesPage: messagesReducer,
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

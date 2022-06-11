@@ -1,0 +1,13 @@
+.d-user__ava {
+    margin-right: 7px;
+  }
+  
+  .d-user__ava img {
+    width: 45px;
+    height: 45px;
+    border: solid 2px #fff;
+    border-radius: 50%;
+    object-fit: cover;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+  }

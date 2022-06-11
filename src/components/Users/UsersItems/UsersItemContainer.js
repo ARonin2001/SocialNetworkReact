@@ -5,6 +5,7 @@ import { setListUsers } from "../../../redux/reducers/usersReducer";
 import { addNewFriend, deleteFriend } from "../../../redux/reducers/authReducer";
 
 const UsersItemContainer = (props) => {
+
     useEffect(() => {
         props.setListUsers(20, 1);
     }, []);

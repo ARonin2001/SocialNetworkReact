@@ -1,0 +1,8 @@
+.messages__dialogs {
+    border-right: 1px solid #E0E0E0;
+    width: 270px;
+  }
+  .dialogs__users {
+    max-height: 668px;
+    overflow-y: auto;
+  }

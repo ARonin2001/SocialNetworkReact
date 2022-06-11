@@ -1,8 +1,10 @@
 import { headerAPI, usersAPI } from "../../Api/Api";
+import { messagesAPI } from './../../Api/Api';
 
 const SET_USER_DATA = "SET-USER-DATA";
 const ADD_FRIEND = "ADD-FRIEND";
 const REMOVE_FRIEND = "REMOVE-FRIEND";
+const SET_MESSAGES = "SET-MESSAGES";
 
 let initialState = {
     _id: null,
@@ -18,6 +20,7 @@ let initialState = {
         backImg: null,
         ava: null,
     },
+    chat: [],
     isAuth: false,
     
 };
@@ -30,6 +33,8 @@ const authReducer = (state = initialState, action) => {
             return {...state, friends: [...state.friends, action.user]};
         case REMOVE_FRIEND:
             return {...state, friends: state.friends.filter(u => u.id !== action.friendId)};
+        case SET_MESSAGES:
+            return {...state, messages: [...action.messages]};
         default:
             return state;
     }
@@ -38,6 +43,7 @@ const authReducer = (state = initialState, action) => {
 export const setAuthUserData = (userData, isAuth = false) => ({type: SET_USER_DATA, userData, isAuth});
 export const addFriend = (user) => ({type: ADD_FRIEND, user});
 export const removeFriend = (friendId) => ({type: REMOVE_FRIEND, friendId});
+export const setMessages = (messages) => ({type: SET_MESSAGES, messages});
 
 export const getAuthUserData = () => {
     return async (dispatch) => {
@@ -53,11 +59,9 @@ export const getAuthUserData = () => {
 export const getLoginUser = (email, password) => {    
     return async (dispatch) => {
         let response = await usersAPI.getLoginUser(email, password);
-
+        
         if(response.status === 200) {
             dispatch(setAuthUserData(response.data.user, true));
-        } else {
-            // let messageError = data.messages.length > 0 ? data.messages[0] : "Some error";
         }
     }
 }
@@ -94,5 +98,16 @@ export const deleteFriend = (friendId, userId) => {
     }
 }
 
+// messages
+export const setUserMessages = (companionId, userId) => {
+    return async (dispatch) => {
+        let response = await messagesAPI.getMessages(companionId, userId);
+
+        if(response.status === 200) {
+            console.log(response.data);
+            // dispatch();
+        }
+    }
+}
 
 export default authReducer;
