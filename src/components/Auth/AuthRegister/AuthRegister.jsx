@@ -7,6 +7,7 @@ import AuthForm from "../AuthForm/AuthForm";
 import RegisterContainer from "../Register/RegisterContainer";
 import { connect } from "react-redux";
 import { createNewUser } from "../../../redux/reducers/authReducer";
+import { Navigate } from 'react-router-dom';
 
 const AuthRegister = (props) => {
     const formik = useFormik({
@@ -37,10 +38,10 @@ const AuthRegister = (props) => {
                 ),
             gender: Yup.string()
                 .required('Required'),
-            country: Yup.string()
-                .required('Required'),
-            city: Yup.string()
-                .required('Required'),
+            // country: Yup.string()
+            //     .required('Required'),
+            // city: Yup.string()
+            //     .required('Required'),
             dateBirth: Yup.date()
                 .min(new Date("1901-01-01"), "Max date is 01-01-1901")
                 .max(new Date("2010-01-01"), "Min date is 01-01-2010")
@@ -48,8 +49,14 @@ const AuthRegister = (props) => {
                 .required('Required'),
         }),
         onSubmit: values => {
-            let response = props.createNewUser(values);
-            console.log(response);
+            (async() => {
+                try {
+                    await props.createNewUser(values);
+                } catch (err) {
+                    console.log(err);
+                }
+            })();
+            
         },
     });
 

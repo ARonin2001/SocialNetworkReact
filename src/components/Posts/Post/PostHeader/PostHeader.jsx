@@ -18,9 +18,6 @@ const PostHeader = ({avaImg, name, datePost, countComments}) => {
                     </div>
                 </a>
             </div>
-            <div className="post__comments-count sub-title">
-                Комментарии: <span className="post__comments-number">{countComments}</span>
-            </div>
         </div>
     );
 };

@@ -4,15 +4,17 @@ import PostForm from "./PostForm/PostForm";
 import './PostWriter.css';
 import PostWriteTitle from "./PostWriteTitle/PostWriteTitle";
 
-const PostWriter = (props) => {
+const PostWriter = ({title, setTitle, content, setContent, postImg, setPostImg, ...props}) => {
     return (
         <div className="post-write content__post-writer block">
             <div className="post-write__container">
-                <PostWriteTitle />
+                <PostWriteTitle title={title} setTitle={setTitle} />
                 <div className="line"></div>
 
                 {/* Form (title, news) */}
-                <PostForm/>
+                <PostForm content={content} setContent={setContent} 
+                    postImg={postImg} setPostImg={setPostImg} 
+                    addPost={props.addPost} />
             </div>
         </div>
     );

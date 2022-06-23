@@ -5,7 +5,7 @@ import './AppCss/font.css';
 import './AppCss/App.css';
 import './AppCss/container.css';
 
-import { Routes, Route, useParams } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import News from './components/News/News';
 // import AuthRegister from './components/Auth/AuthRegister/AuthRegister';

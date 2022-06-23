@@ -16,7 +16,7 @@ const Register = ({selects, inputs, ...props}) => {
             <InputRow inputs={inputs.rows[1]} change={inputs.methods.change} errors={inputs.values.errors} />
 
             {/* country and city */}
-            <div className="auth__selects auth__section-row">
+            {/* <div className="auth__selects auth__section-row">
                 {
                     selects.map(select => {
                         return (
@@ -24,7 +24,7 @@ const Register = ({selects, inputs, ...props}) => {
                         )
                     })
                 }
-            </div>
+            </div> */}
 
             {/* date of birth */}
             <div className="auth__date-time auth__section-row">

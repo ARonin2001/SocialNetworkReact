@@ -110,5 +110,20 @@ export const messagesAPI = {
         return instance.get(`messages/get/chat/${companionId}/${userId}`)
             .then(response => response);
     }
+};
+
+export const postsAPI = {
+    addPost(userId, data) {
+        let formData = new FormData();
+        formData.append("postImg", data.postImg);
+        formData.append("title", data.title);
+        formData.append("textContent", data.textContent);
+        
+        return instance.post(`post/add/${userId}`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+    }
 }
 

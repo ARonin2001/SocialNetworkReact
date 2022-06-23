@@ -10,15 +10,17 @@ import postImg from '../../../assets/img/forPost.jpg';
 import PostFooter from "./PostFooter/PostFooter";
 
 const Post = (props) => {
+    let datePost = new Date(props.date).toLocaleString();
+
     return (
         <div className="posts__post post block">
             <div className="post__container">
-                <PostHeader avaImg={avaDefault} name={"Jovani Giorgio"} datePost={"04.05.2022"} countComments={567}/>
+                <PostHeader avaImg={avaDefault} name={"Jovani Giorgio"} datePost={datePost} />
                 <div className="line"></div>
-                <PostContent title={"Fond SCP"} content={"Фонд SCP — вымышленная организация, являющаяся предметом одноимённого проекта совместного веб-творчества, в русском переводе также известная просто как Фонд или Организация. Созданные в рамках проекта тексты описывают деятельность Фонда, несущего ответственность за содержание аномальных предметов..."} 
-                postImg={postImg}/>
+                <PostContent title={props.title} content={props.textContent} 
+                postImg={props.postImg}/>
                 <div className="line"></div>
-                <PostFooter countLikes={256} />
+                <PostFooter countLikes={props.likesCount} />
             </div>
         </div>
     );

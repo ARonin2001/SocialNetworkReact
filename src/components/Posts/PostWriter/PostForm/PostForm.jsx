@@ -4,13 +4,13 @@ import PostBottom from "../PostBottom/PostBottom";
 
 import './PostForm.css';
 
-const PostForm = (props) => {
+const PostForm = ({content, setContent, postImg, setPostImg, addPost}) => {
     return (
         <form className="post-write__form form-post">
-            <FormContent/>
+            <FormContent content={content} setContent={setContent}/>
             <div className="line"></div>
             {/* Description for post */}
-            <PostBottom />
+            <PostBottom postImg={postImg} setPostImg={setPostImg} addPost={addPost} />
         </form>
     );
 };
