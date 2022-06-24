@@ -34,6 +34,9 @@ const ProfileContainer = (props) => {
                 userId={props.userId}
                 addFriend={addFriend}
                 deleteFriend={deleteFriend}
+
+                avaImg={props.avaImg}
+                aboutMe={props.aboutMe}
                  />
         </>
     );
@@ -45,6 +48,8 @@ const mapStateToProps = state => {
         userId: state.auth._id,
         friends: state.auth.friends,
         profile: state.profilePage.profile,
+        avaImg: state.auth.img.ava,
+        aboutMe: state.auth.aboutMe,
     }
 }
 

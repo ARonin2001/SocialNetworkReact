@@ -13,7 +13,8 @@ const UserStatus = ({status, openStatusEdit}) => {
 
 let mapStateToProps = state => {
     return {
-        status: state.profilePage.profile.aboutMe.status
+        // status: state.profilePage.profile.aboutMe.status
+        status: state.auth.aboutMe.status
     }
 }
 

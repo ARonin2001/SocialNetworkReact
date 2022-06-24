@@ -2,7 +2,9 @@ import { useFormik } from 'formik';
 import React from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { updateUserAboutMe } from '../../../../../redux/reducers/profileReducer';
+// import { updateUserAboutMe } from '../../../../../redux/reducers/profileReducer';
+import { updateUserAboutMe } from './../../../../../redux/reducers/authReducer';
+
 import AboutMeEdit from './AboutMeEdit';
 import * as Yup from 'yup';
 

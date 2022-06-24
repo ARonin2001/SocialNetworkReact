@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import InputStatus from "./InputStatus";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { updateUserStatus } from "../../../../../../../redux/reducers/profileReducer";
+// import { updateUserStatus } from "../../../../../../../redux/reducers/profileReducer";
+import { updateUserStatus } from "../../../../../../../redux/reducers/authReducer";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import withPreloader from './../../../../../../HOC/withPreloader/withPreloader';
@@ -16,9 +17,11 @@ const InputStatusContainer = ({userId, ...props}) => {
 
     const updateStatus = async(values) => {
         setPreloader(true);
-
-        if(params.id === userId)
+        
+        if(params.id === userId) {
             await props.updateUserStatus(userId, values.status);
+            props.closeStatusEdit();
+        }
         
         setPreloader(false);
     }
@@ -44,7 +47,7 @@ const InputStatusContainer = ({userId, ...props}) => {
 
 const mapStateToProps = state => {
     return {
-        userId: state.auth.id
+        userId: state.auth._id
     }
 }
 

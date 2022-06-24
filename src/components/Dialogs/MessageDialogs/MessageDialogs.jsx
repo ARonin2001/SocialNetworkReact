@@ -7,7 +7,7 @@ import './MessageDialogs.css';
 const MessageDialogs = (props) => {
     useEffect(() => {
         props.setUsersByMessages(props.userId);
-    }, []);
+    }, [props.users]);
 
     return (
         <div className="messages__dialogs dialogs">

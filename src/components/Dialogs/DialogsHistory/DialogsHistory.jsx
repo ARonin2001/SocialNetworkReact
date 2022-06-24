@@ -10,8 +10,15 @@ const DialogsHistory = (props) => {
     let user = props.selectedUser;
     let [isAddMsg, setAddMsg] = useState(false);
 
+    // useEffect(() => {
+    //     socket.on('MSG:ADD', (newMsg) => props.addMessage(newMsg) );
+    // }, []);
+
     useEffect(() => {
-        socket.on('MSG:ADD', (newMsg) => props.addMessage(newMsg) );
+        socket.on('MSG:ADD', (newMsg) => {
+            // return props.addNewMessage(props.companionId, props.userId, newMsg, "companion");
+            return props.addMessage(newMsg);
+        });
     }, []);
 
     useEffect(() => {

@@ -13,7 +13,10 @@ const UserItemRight = (props) => {
             {
                 props.isAuth &&
                     <UserItemMethods addFriend={props.addFriend} deleteFriend={props.deleteFriend} 
-                        userId={props.id} 
+                        addChat={props.addChat}
+                        id={props.id}
+                        userId={props.userId} 
+                        companionId={props.id}
                         friends={props.friends} />
             }
             

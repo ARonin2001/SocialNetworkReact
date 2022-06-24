@@ -61,16 +61,21 @@ const Profile = ({profile, ...props}) => {
             <div className="profile__container">
                 <div className="background__coverage" onClick={onClickBackgroundCoverage}></div>
                 <ProfileTop languages={profile.languages} openLanguagesBlock={openLanguagesBlock} />
-                <ProfileBottom openStatusEdit={openStatusEdit} isStatusEdit={isStatusEdit} 
+                <ProfileBottom openStatusEdit={openStatusEdit} 
+                    closeStatusEdit={closeStatusEdit}
+                    isStatusEdit={isStatusEdit} 
                     showUploadAva={showUploadAva} 
-                    name={profile.aboutMe.name}
-                    lastName={profile.aboutMe.lastName}
-                    avaImg={profile.img.ava}
+                    name={props.aboutMe.name}
+                    lastName={props.aboutMe.lastName}
+                    avaImg={props.avaImg}
                     status={profile.aboutMe.status}
                     friends={props.friends}
                     userId={props.userId}
                     addFriend={props.addFriend}
-                    deleteFriend={props.deleteFriend}
+                    deleteFriend={props.deleteFriend} 
+
+                    closeUploadAva={closeUploadAva}
+
                     />
 
                 {/* user languages */}
@@ -80,7 +85,7 @@ const Profile = ({profile, ...props}) => {
                 }
                 {
                     isShowUploadAva && 
-                        <AvaUploadPageDimming />
+                        <AvaUploadPageDimming closeUploadAva={closeUploadAva} />
                 }
                 {
                     isAddLng && 

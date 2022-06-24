@@ -11,7 +11,7 @@ const UserInfo = ({name, status, ...props}) => {
         <>
             {
                 props.isStatusEdit && 
-                    <InputStatusContainer />
+                    <InputStatusContainer closeStatusEdit={props.closeStatusEdit} />
             }
             {
                 !props.isStatusEdit && 

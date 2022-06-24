@@ -8,6 +8,7 @@ import RegisterContainer from "../Register/RegisterContainer";
 import { connect } from "react-redux";
 import { createNewUser } from "../../../redux/reducers/authReducer";
 import { Navigate } from 'react-router-dom';
+import { useEffect } from "react";
 
 const AuthRegister = (props) => {
     const formik = useFormik({
@@ -60,6 +61,10 @@ const AuthRegister = (props) => {
         },
     });
 
+    if(props.isAuth) {
+        return <Navigate to={`/profile/${props.userId}`} />
+    }
+
     return (
         <div className="block auth">
             <div className="auth__container">
@@ -77,7 +82,14 @@ const AuthRegister = (props) => {
     );
 };
 
+const mapStateToProps = state => {
+    return {
+        userId: state.auth._id,
+        isAuth: state.auth.isAuth
+    }
+}
+
 export default connect(
-    null, 
+    mapStateToProps, 
     {createNewUser}
 )(AuthRegister);

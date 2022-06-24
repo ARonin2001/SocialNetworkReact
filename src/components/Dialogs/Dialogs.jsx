@@ -32,7 +32,7 @@ const Dialogs = (props) => {
         if(companionId && props.chat.roomId) {
             socket.emit('MSG:JOIN', props.chat.roomId);
         }
-    }, [props.chat.roomId]);
+    }, [companionId, props.chat.roomId]);
 
     useEffect(() => {
         props.showDialogs();
@@ -45,6 +45,7 @@ const Dialogs = (props) => {
             <div className="messages__container">
                 <MessageDialogs users={props.users} setUsersByMessages={props.setUsersByMessages} 
                     userId={props.userId} 
+                    users={props.users}
                     companionId={companionId}
                     selectCompanionId={selectCompanionId} />
                 <DialogsHistory companionId={companionId} 
@@ -55,7 +56,8 @@ const Dialogs = (props) => {
 
                     authName={props.authName}
                     authAva={props.authAva}
-                    companion={selectedUser} 
+                    companion={selectedUser}
+                     
                     addNewMessage={props.addNewMessage}
                     addMessage={props.addMessage} />
             </div>

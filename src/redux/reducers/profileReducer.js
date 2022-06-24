@@ -1,12 +1,12 @@
 import { usersAPI, profileAPI } from "../../Api/Api";
 
-const SET_STATUS = "SET-STATUS";
+// const SET_STATUS = "SET-STATUS";
 const SET_USER_PROFILE_DATA = "SET-USER-PROFILE-DATA";
 const ADD_LANGUAGE = "ADD-LANGUAGE";
 const REMOVE_LANGUAGE = "REMOVE-LANGUAGE";
 const UPDATE_AVA = "UPDATE-AVA";
 const EDIT_LEVEL_LANGUAGE = "EDIT-LEVEL-LANGUAGE";
-const UPDATE_ABOUTME = "UPDATE-ABOUTME"; 
+// const UPDATE_ABOUTME = "UPDATE-ABOUTME"; 
 
 let initialState = {
     profile: {
@@ -36,10 +36,10 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch(action.type) {
-        case SET_STATUS:
-            return {...state, profile: {...state.profile, 
-                aboutMe: {...state.profile.aboutMe, status: action.status} 
-            }};
+        // case SET_STATUS:
+        //     return {...state, profile: {...state.profile, 
+        //         aboutMe: {...state.profile.aboutMe, status: action.status} 
+        //     }};
         case SET_USER_PROFILE_DATA:
             return {...state, profile: {...state.profile, ...action.data}}
         case ADD_LANGUAGE:
@@ -62,34 +62,34 @@ const profileReducer = (state = initialState, action) => {
                     return {...lng};
                 } )
             }}}
-        case UPDATE_AVA:
-            return {...state, profile: {...state.profile, img: {...state.profile.img, ava: action.ava} }}
-        case UPDATE_ABOUTME:
-            return {...state, profile: {...state.profile, aboutMe: {...action.aboutMe}}}
+        // case UPDATE_AVA:
+        //     return {...state, profile: {...state.profile, img: {...state.profile.img, ava: action.ava} }}
+        // case UPDATE_ABOUTME:
+        //     return {...state, profile: {...state.profile, aboutMe: {...action.aboutMe}}}
         default:
             return state;
     };
 };
 
 // actions
-export const setStatus = (status) => ({type: SET_STATUS, status});
+// export const setStatus = (status) => ({type: SET_STATUS, status});
 export const setUser = (data) => ({type: SET_USER_PROFILE_DATA, data});
 export const addLanguage = (typeLng, languages) => ({type: ADD_LANGUAGE, typeLng, languages});
-export const updateAva = (ava) => ({type: UPDATE_AVA, ava});
+// export const updateAva = (ava) => ({type: UPDATE_AVA, ava});
 export const removeLanguage = (typeLng, lngId) => ({type: REMOVE_LANGUAGE, typeLng, lngId});
 export const editLanguageLevel = (lngId, level) => ({type: EDIT_LEVEL_LANGUAGE, lngId, level});
-export const updateAboutMe = (aboutMe) => ({type: UPDATE_ABOUTME, aboutMe});
+// export const updateAboutMe = (aboutMe) => ({type: UPDATE_ABOUTME, aboutMe});
 
 // thukns
-export const updateUserStatus = (userId, status) => {
-    return async (dispatch) => {
-        let response = await usersAPI.updateStatus(userId, status);
-
-        if(response.status === 200) {
-            dispatch(setStatus(status));
-        }
-    }
-}
+// export const updateUserStatus = (userId, status) => {
+//     return async (dispatch) => {
+//         let response = await usersAPI.updateStatus(userId, status);
+        
+//         if(response.status === 200) {
+//             dispatch(setStatus(status));
+//         }
+//     }
+// }
 
 export const setProfileData = (userId) => {
     return async (dispatch) => {
@@ -133,20 +133,20 @@ export const editUserLanguageLevel = (lngId, level, userId) => {
 }
 
 // ava
-export const updateProfileAva = (imgName, userId) => {
-    return async (dispatch) => {
-        let response = await profileAPI.updateAva(imgName, userId);
-        dispatch(updateAva(response.data.imgPath));
-    }
-}
+// export const updateProfileAva = (imgName, userId) => {
+//     return async (dispatch) => {
+//         let response = await profileAPI.updateAva(imgName, userId);
+//         dispatch(updateAva(response.data.imgPath));
+//     }
+// }
 
 // update about me
-export const updateUserAboutMe = (aboutMe, userId) => {
-    return async (dispatch) => {
-        let response = await profileAPI.updateAboutMe(aboutMe, userId);
-        if(response.status === 200)
-            dispatch(updateAboutMe(aboutMe));
-    }
-}
+// export const updateUserAboutMe = (aboutMe, userId) => {
+//     return async (dispatch) => {
+//         let response = await profileAPI.updateAboutMe(aboutMe, userId);
+//         if(response.status === 200)
+//             dispatch(updateAboutMe(aboutMe));
+//     }
+// }
 
 export default profileReducer;

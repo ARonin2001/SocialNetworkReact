@@ -1,10 +1,12 @@
-import { headerAPI, usersAPI } from "../../Api/Api";
-import { messagesAPI } from './../../Api/Api';
+import { headerAPI, usersAPI, messagesAPI, profileAPI } from "../../Api/Api";
 
 const SET_USER_DATA = "SET-USER-DATA";
 const ADD_FRIEND = "ADD-FRIEND";
 const REMOVE_FRIEND = "REMOVE-FRIEND";
 const SET_MESSAGES = "SET-MESSAGES";
+const SET_STATUS = "SET-STATUS";
+const UPDATE_AVA = "UPDATE-AVA";
+const UPDATE_ABOUTME = "UPDATE-ABOUTME"; 
 
 let initialState = {
     _id: null,
@@ -35,6 +37,12 @@ const authReducer = (state = initialState, action) => {
             return {...state, friends: state.friends.filter(u => u.id !== action.friendId)};
         case SET_MESSAGES:
             return {...state, messages: [...action.messages]};
+        case SET_STATUS:
+            return {...state, aboutMe: {...state.aboutMe, status: action.status} };
+        case UPDATE_AVA:
+            return {...state, img: {...state.img, ava: action.ava} }
+        case UPDATE_ABOUTME:
+            return {...state, aboutMe: {...state.aboutMe, ...action.aboutMe}}
         default:
             return state;
     }
@@ -44,6 +52,9 @@ export const setAuthUserData = (userData, isAuth = false) => ({type: SET_USER_DA
 export const addFriend = (user) => ({type: ADD_FRIEND, user});
 export const removeFriend = (friendId) => ({type: REMOVE_FRIEND, friendId});
 export const setMessages = (messages) => ({type: SET_MESSAGES, messages});
+export const setStatus = (status) => ({type: SET_STATUS, status});
+export const updateAva = (ava) => ({type: UPDATE_AVA, ava});
+export const updateAboutMe = (aboutMe) => ({type: UPDATE_ABOUTME, aboutMe});
 
 export const getAuthUserData = () => {
     return async (dispatch) => {
@@ -107,6 +118,35 @@ export const setUserMessages = (companionId, userId) => {
             console.log(response.data);
             // dispatch();
         }
+    }
+}
+
+// STATUS
+export const updateUserStatus = (userId, status) => {
+    return async (dispatch) => {
+        let response = await usersAPI.updateStatus(userId, status);
+        
+        if(response.status === 200) {
+            dispatch(setStatus(status));
+        }
+    }
+}
+
+// AVA
+export const updateProfileAva = (imgName, userId) => {
+    return async (dispatch) => {
+        let response = await profileAPI.updateAva(imgName, userId);
+        dispatch(updateAva(response.data.imgPath));
+    }
+}
+
+// ABOUT ME
+export const updateUserAboutMe = (aboutMe, userId) => {
+    return async (dispatch) => {
+        let response = await profileAPI.updateAboutMe(aboutMe, userId);
+        
+        if(response.status === 200)
+            dispatch(updateAboutMe(aboutMe));
     }
 }
 

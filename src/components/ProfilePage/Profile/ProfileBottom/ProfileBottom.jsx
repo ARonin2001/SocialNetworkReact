@@ -23,9 +23,12 @@ const ProfileBottom = (props) => {
                 name={props.name}
                 lastName={props.lastName}
                 status={""}
-                openStatusEdit={props.openStatusEdit} 
+                openStatusEdit={props.openStatusEdit}
+                closeStatusEdit={props.closeStatusEdit}
+                 
                 isStatusEdit={props.isStatusEdit}
-                showUploadAva={props.showUploadAva} />
+                showUploadAva={props.showUploadAva}
+                 />
 
             <div className="profile__buttons">
                 {
@@ -50,7 +53,7 @@ const ProfileBottom = (props) => {
                     </>
                 }
                 
-                <ProfileBtn btnText={"Upload back img"} icon={faCameraRotate} />
+                {/* <ProfileBtn btnText={"Upload back img"} icon={faCameraRotate} /> */}
             </div>
         </div>
     );

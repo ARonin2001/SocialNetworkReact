@@ -9,7 +9,7 @@ const SendingMessageForm = (props) => {
 
     const sendMessage = async () => {
         if(message) {
-            await props.addNewMessage(props.userId, props.companionId, message);
+            await props.addNewMessage(props.userId, props.companionId, message, "me");
             setMessage('');
             props.setAddMsg(true);
         }

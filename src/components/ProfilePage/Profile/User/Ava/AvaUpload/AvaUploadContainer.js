@@ -3,7 +3,8 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
 
-import {updateProfileAva} from '../../../../../../redux/reducers/profileReducer';
+// import {updateProfileAva} from '../../../../../../redux/reducers/profileReducer';
+import { updateProfileAva } from '../../../../../../redux/reducers/authReducer';
 
 import AvaUpload from './AvaUpload';
 import './AvaUpload.css';
@@ -22,6 +23,7 @@ const AvaUploadContainer = (props) => {
             setPreloader(true);
             await props.updateProfileAva(fileImg, props.userId);
             setPreloader(false);
+            props.closeUploadAva();
         }
     }
 

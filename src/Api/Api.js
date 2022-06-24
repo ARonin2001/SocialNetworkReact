@@ -100,14 +100,25 @@ export const messagesAPI = {
         return instance.get(`messages/get/companions/${userId}`)
             .then(response => response);
     },
-    addMessage(userId, companionId, message) {
+    addMessage(userId, companionId, message, sender) {
         return instance.put(`messages/${userId}`, {
             companionId,
             message,
+            sender,
         });
     },
+    // addMessage(userId, companionId, message) {
+    //     return instance.put(`messages/${userId}`, {
+    //         companionId,
+    //         message,
+    //     });
+    // },    
     getChat(companionId, userId) {
         return instance.get(`messages/get/chat/${companionId}/${userId}`)
+            .then(response => response);
+    },
+    addChat(companionId, userId, roomId = null) {
+        return instance.put(`messages/add/chat/${companionId}/${userId}`, {roomId})
             .then(response => response);
     }
 };

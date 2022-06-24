@@ -1,5 +1,6 @@
 .user__method {
     position: relative;
+    margin-right: 10px;
   }
   .user__method,
   .user__method a {

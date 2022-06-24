@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import UsersItems from "./UsersItem";
 import { setListUsers } from "../../../redux/reducers/usersReducer";
 import { addNewFriend, deleteFriend } from "../../../redux/reducers/authReducer";
+import { addNewChat } from "../../../redux/reducers/messagesReducer";
+import { Navigate, NavLink } from "react-router-dom";
 
 const UsersItemContainer = (props) => {
 
@@ -22,12 +24,19 @@ const UsersItemContainer = (props) => {
         }
     }
 
+    const addChat = async (companionId, userId) => {
+        await props.addNewChat(companionId, userId);
+
+        return <Navigate to={"/auth/login"} />
+    }
+
     return (
         <UsersItems isAuth={props.isAuth}
             userId={props.userId}
             users={props.users} 
             addFriend={addFriend} 
-            deleteFriend={deleteFriend} 
+            deleteFriend={deleteFriend}
+            addChat={addChat} 
             friends={props.friends} />
         
     );
@@ -44,6 +53,8 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    {setListUsers, addNewFriend, deleteFriend}
+    {
+        setListUsers, addNewFriend, deleteFriend, addNewChat
+    }
 )
 (UsersItemContainer);
